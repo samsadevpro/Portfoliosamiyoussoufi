@@ -1,0 +1,157 @@
+/* =========================================
+   🎨 Base globale
+========================================= */
+:root {
+  --red-main: #ff1a1a;
+  --red-dark: #550000;
+  --gray-text: #b0b0b0;
+  --gray-light: #e0e0e0;
+  --black-bg: #0a0a0a;
+}
+
+body {
+  background-color: var(--black-bg);
+  color: var(--gray-light);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* =========================================
+   🟥 Titres
+========================================= */
+h1, h2, h3 {
+  color: var(--red-main);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+/* =========================================
+   📄 Textes
+========================================= */
+p, li, span {
+  color: var(--gray-text);
+}
+
+/* =========================================
+   📌 Sidebar
+========================================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 14rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid #374151;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 50;
+}
+
+/* =========================================
+   📦 Sections
+========================================= */
+section {
+  background-color: var(--black-bg);
+  padding: 2rem 0;
+}
+
+/* =========================================
+   🗂 Cartes
+========================================= */
+.card {
+  background-color: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--red-dark);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px var(--red-dark);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--red-main);
+  cursor: pointer;
+}
+
+/* =========================================
+   🔗 Liens & Boutons
+========================================= */
+a, .btn {
+  color: #fff;
+  text-decoration: none;
+  background-color: var(--red-dark);
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+a:hover,
+.btn:hover {
+  background-color: var(--red-main);
+  box-shadow: 0 0 15px var(--red-main);
+}
+
+/* =========================================
+   📊 Tableaux
+========================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(20, 20, 20, 0.8);
+}
+
+th, td {
+  border: 1px solid var(--red-dark);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: var(--red-dark);
+  color: #fff;
+}
+
+td {
+  color: var(--gray-text);
+}
+
+/* =========================================
+   📝 Formulaires
+========================================= */
+input, textarea {
+  background-color: #1a1a1a;
+  border: 1px solid var(--red-dark);
+  color: var(--gray-light);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: border 0.2s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--red-main);
+  box-shadow: 0 0 10px var(--red-main);
+}
+
+/* =========================================
+   📑 Iframe PDF
+========================================= */
+iframe {
+  border: 1px solid var(--red-dark);
+  background-color: var(--black-bg);
+}
+
+/* =========================================
+   🎯 Utilitaires
+========================================= */
+.text-red {
+  color: var(--red-main);
+}
