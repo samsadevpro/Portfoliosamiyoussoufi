@@ -20,4 +20,4 @@ Les contributions ne sont pas nécessaires pour ce portfolio, mais n'hésitez pa
 
 ## Licence
 
-Ce projet est sous licence MIT.
+Ce projet est sous licence Sami Youssoufi.
