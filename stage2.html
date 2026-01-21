@@ -7,19 +7,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="style.css" rel="stylesheet" />
   <style>
-    .card-stage-1 {
+    .card-stage-2 {
       background: rgba(30, 41, 59, 0.5);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(147, 51, 234, 0.2);
     }
     
-    .card-stage-1:hover {
-      border-color: rgba(59, 130, 246, 0.5);
-      box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+    .card-stage-2:hover {
+      border-color: rgba(147, 51, 234, 0.5);
+      box-shadow: 0 20px 60px rgba(147, 51, 234, 0.3);
     }
     
-    .badge-stage-1 {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    .badge-stage-2 {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
       padding: 8px 20px;
       border-radius: 50px;
       display: inline-block;
@@ -30,12 +30,14 @@
 </head>
 <body>
   
+  <!-- Particles background -->
+  <div class="particles" id="particles"></div>
   
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="p-8 mt-4">
       <h1 class="text-2xl font-bold text-blue-400">SAMI YOUSSOUFI</h1>
-      <p class="text-sm text-slate-400 mt-2">Etudiant en BTS SIO</p>
+      <p class="text-sm text-slate-400 mt-2">Étudiant en BTS SIO</p>
     </div>
     <nav class="mt-8">
       <a href="index.html#accueil" class="nav-link">Accueil</a>
@@ -56,124 +58,284 @@
     <!-- Hero Section -->
     <section class="hero-section px-8 min-h-[50vh] flex items-center justify-center">
       <div class="text-center relative z-10">
-        <div class="badge-stage-1 mb-6 text-white">2ème Année</div>
-        <h1 class="text-6xl font-black mb-6" style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        <div class="badge-stage-2 mb-6 text-white">2ème Année</div>
+        <h1 class="text-6xl font-black mb-6" style="background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
           Stage 2ème Année
         </h1>
-        <p class="text-2xl text-blue-400 font-semibold mb-2">1 décembre - 23 janvier 2026</p>
-        <p class="text-xl text-slate-400">Initiation aux métiers de l'informatique</p>
+        <p class="text-2xl text-blue-400 font-semibold mb-2">1er décembre 2025 - 23 janvier 2026</p>
+        <p class="text-xl text-slate-400">RATP INFRASTRUCTURES - Unité ISI</p>
       </div>
     </section>
 
     <!-- Introduction -->
     <section class="px-8 py-16">
       <div class="max-w-5xl mx-auto">
-        <div class="card card-stage-1 p-8">
+        <div class="card card-stage-2 p-8">
           <div class="relative z-10">
-            <h2 class="text-3xl font-bold text-white mb-6">📋 À propos du stage</h2>
+            <h2 class="text-3xl font-bold text-white mb-6">🚇 À propos du stage</h2>
             <p class="text-lg leading-relaxed text-slate-300 mb-6">
-              Mon deuxième stage en entreprise m'a permis d'approfondir mes compétences en informatique. Durant 8 semaines, j'ai pu mettre en pratique mes connaissances théoriques et développer de nouvelles compétences techniques et relationnelles.
+              Mon stage de deuxième année s'est déroulé au sein de <strong class="text-blue-400">RATP INFRASTRUCTURES</strong>, filiale du groupe RATP chargée de la gestion technique et de la surveillance du réseau de transport francilien. J'ai été intégré à l'unité <strong class="text-blue-400">ISI (Industrialisation des Systèmes d'Information)</strong>, au sein de l'entité <strong class="text-blue-400">U2D (Urbanisation, Développement et Data)</strong>.
             </p>
-            <p class="text-lg leading-relaxed text-slate-300">
-              Ce stage m'a offert l'opportunité de travailler sur des projets concrets et de comprendre les enjeux de la gestion informatique au sein d'une organisation.
+            <p class="text-lg leading-relaxed text-slate-300 mb-6">
+              Durant 8 semaines, j'ai travaillé sur deux projets stratégiques : <strong class="text-blue-400">GAP</strong> (Gestion de l'Activité et du Pointage) et <strong class="text-blue-400">OMEGA</strong> (nouvel outil de ticketing). Ces missions m'ont permis de renforcer mes compétences en développement, tests fonctionnels et gestion de données.
             </p>
+            <div class="grid md:grid-cols-3 gap-4 mt-8">
+              <div class="bg-slate-800/50 rounded-lg p-4 text-center">
+                <div class="text-3xl mb-2">🏢</div>
+                <p class="text-blue-400 font-semibold">RATP Infrastructures</p>
+                <p class="text-sm text-slate-400">Pôle DI3D</p>
+              </div>
+              <div class="bg-slate-800/50 rounded-lg p-4 text-center">
+                <div class="text-3xl mb-2">👨‍💼</div>
+                <p class="text-blue-400 font-semibold">Joel GALLEGO</p>
+                <p class="text-sm text-slate-400">Tuteur entreprise</p>
+              </div>
+              <div class="bg-slate-800/50 rounded-lg p-4 text-center">
+                <div class="text-3xl mb-2">📅</div>
+                <p class="text-blue-400 font-semibold">8 semaines</p>
+                <p class="text-sm text-slate-400">Décembre 2025 - Janvier 2026</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Missions -->
+    <!-- Projets principaux -->
     <section class="px-8 py-16 bg-slate-900/30">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="section-title text-white mb-12">Projets principaux</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          
+          <!-- Projet GAP -->
+          <div class="card card-stage-2 p-8">
+            <div class="relative z-10">
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
+                  <span class="text-4xl">⏱️</span>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-blue-400">Application GAP</h3>
+                  <p class="text-sm text-slate-400">Gestion de l'Activité et du Pointage</p>
+                </div>
+              </div>
+              <p class="text-slate-300 leading-relaxed mb-4">
+                Application métier dédiée à la gestion des Jours-Hommes (J.H) pour le GIGP (Gestionnaire d'Infrastructure Grand Paris). J'ai réalisé la recette fonctionnelle complète de l'application.
+              </p>
+              <div class="bg-slate-800/50 rounded-lg p-4">
+                <h4 class="text-blue-400 font-semibold mb-2">Mes réalisations</h4>
+                <ul class="space-y-2 text-slate-400 text-sm">
+                  <li>• Tests fonctionnels et validation des fonctionnalités</li>
+                  <li>• Détection et analyse de bugs critiques</li>
+                  <li>• Proposition d'évolutions (suppression groupée)</li>
+                  <li>• Documentation complète (dossier de recette)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Projet OMEGA -->
+          <div class="card card-stage-2 p-8">
+            <div class="relative z-10">
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
+                  <span class="text-4xl">🎫</span>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-blue-400">Projet OMEGA</h3>
+                  <p class="text-sm text-slate-400">Nouvel outil de ticketing</p>
+                </div>
+              </div>
+              <p class="text-slate-300 leading-relaxed mb-4">
+                Modernisation du système de gestion d'incidents avec Laravel. J'ai pris en charge l'ingénierie des données et la préparation de la migration depuis l'ancien outil osTicket.
+              </p>
+              <div class="bg-slate-800/50 rounded-lg p-4">
+                <h4 class="text-blue-400 font-semibold mb-2">Mes réalisations</h4>
+                <ul class="space-y-2 text-slate-400 text-sm">
+                  <li>• Migration de données (CSV vers Laravel)</li>
+                  <li>• Nettoyage et mapping des données</li>
+                  <li>• Configuration des intervenants et services</li>
+                  <li>• Gestion du cloisonnement des accès</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Missions réalisées -->
+    <section class="px-8 py-16">
       <div class="max-w-6xl mx-auto">
         <h2 class="section-title text-white mb-12">Missions réalisées</h2>
         
         <div class="grid md:grid-cols-2 gap-8">
           
           <!-- Mission 1 -->
-          <div class="card card-stage-1 p-8">
+          <div class="card card-stage-2 p-8">
             <div class="relative z-10">
               <div class="flex items-center mb-6">
                 <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
-                  <span class="text-4xl">📱</span>
+                  <span class="text-4xl">🔍</span>
                 </div>
-                <h3 class="text-2xl font-bold text-blue-400"><h3>
+                <h3 class="text-2xl font-bold text-blue-400">Tests fonctionnels</h3>
               </div>
               <p class="text-slate-300 leading-relaxed mb-4">
-                
+                Validation complète des fonctionnalités de l'application GAP en environnement de test avec création de jeux de données.
               </p>
               <div class="bg-slate-800/50 rounded-lg p-4">
-                <h4 class="text-blue-400 font-semibold mb-2"></h4>
+                <h4 class="text-blue-400 font-semibold mb-2">Compétences</h4>
                 <ul class="space-y-2 text-slate-400 text-sm">
-                  <li>• </li>
-                  <li>• </li>
-                  <li>• </li>
+                  <li>• Tests d'intégration</li>
+                  <li>• Tests aux limites</li>
+                  <li>• Tests de non-régression</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <!-- Mission 2 -->
-          <div class="card card-stage-1 p-8">
+          <div class="card card-stage-2 p-8">
             <div class="relative z-10">
               <div class="flex items-center mb-6">
                 <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
-                  <span class="text-4xl">🎫</span>
+                  <span class="text-4xl">🐛</span>
                 </div>
-                <h3 class="text-2xl font-bold text-blue-400"></h3>
+                <h3 class="text-2xl font-bold text-blue-400">Détection de bugs</h3>
               </div>
               <p class="text-slate-300 leading-relaxed mb-4">
+                Identification, analyse et documentation des anomalies critiques impactant l'intégrité des données métier.
               </p>
               <div class="bg-slate-800/50 rounded-lg p-4">
-                <h4 class="text-blue-400 font-semibold mb-2"></h4>
+                <h4 class="text-blue-400 font-semibold mb-2">Réalisations</h4>
                 <ul class="space-y-2 text-slate-400 text-sm">
-                  <li>•  </li>
-                  <li>•   </li>
-                  <li>•  </li>
+                  <li>• Diagnostic technique</li>
+                  <li>• Qualification des bugs</li>
+                  <li>• Suivi des corrections</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <!-- Mission 3 -->
-          <div class="card card-stage-1 p-8">
+          <div class="card card-stage-2 p-8">
             <div class="relative z-10">
               <div class="flex items-center mb-6">
                 <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
-                  <span class="text-4xl">🖥️</span>
+                  <span class="text-4xl">📊</span>
                 </div>
-                <h3 class="text-2xl font-bold text-blue-400"> </h3>
+                <h3 class="text-2xl font-bold text-blue-400">Gestion de données</h3>
               </div>
               <p class="text-slate-300 leading-relaxed mb-4">
+                Préparation et nettoyage des données pour la migration vers le nouveau système OMEGA avec Laravel.
               </p>
               <div class="bg-slate-800/50 rounded-lg p-4">
-                <h4 class="text-blue-400 font-semibold mb-2"></h4>
+                <h4 class="text-blue-400 font-semibold mb-2">Activités</h4>
                 <ul class="space-y-2 text-slate-400 text-sm">
-                  <li>•  </li>
-                  <li>•  </li>
-                  <li>•   </li>
+                  <li>• Traitement de fichiers CSV</li>
+                  <li>• Mapping de données</li>
+                  <li>• Normalisation et validation</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <!-- Mission 4 -->
-          <div class="card card-stage-1 p-8">
+          <div class="card card-stage-2 p-8">
             <div class="relative z-10">
               <div class="flex items-center mb-6">
                 <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
-                  <span class="text-4xl">⚙️</span>
+                  <span class="text-4xl">📝</span>
                 </div>
-                <h3 class="text-2xl font-bold text-blue-400"> </h3>
+                <h3 class="text-2xl font-bold text-blue-400">Documentation</h3>
               </div>
               <p class="text-slate-300 leading-relaxed mb-4">
+                Rédaction du dossier de recette complet avec scénarios de test, résultats et captures d'écran.
               </p>
               <div class="bg-slate-800/50 rounded-lg p-4">
-                <h4 class="text-blue-400 font-semibold mb-2"></h4>
+                <h4 class="text-blue-400 font-semibold mb-2">Livrables</h4>
                 <ul class="space-y-2 text-slate-400 text-sm">
-                  <li>•  </li>
-                  <li>•  </li>
-                  <li>•  </li>
+                  <li>• Cahier de tests</li>
+                  <li>• Comptes-rendus techniques</li>
+                  <li>• Preuves de validation</li>
                 </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Études de cas -->
+    <section class="px-8 py-16 bg-slate-900/30">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="section-title text-white mb-12">Études de cas</h2>
+        
+        <div class="space-y-8">
+          
+          <!-- Étude de cas 1 -->
+          <div class="card card-stage-2 p-8">
+            <div class="relative z-10">
+              <div class="flex items-start mb-6">
+                <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <span class="text-2xl">📋</span>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-blue-400 mb-2">Optimisation des actions de masse</h3>
+                  <p class="text-sm text-slate-500">Projet GAP - Amélioration fonctionnelle</p>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <div>
+                  <h4 class="text-white font-semibold mb-2">🎯 Problème identifié</h4>
+                  <p class="text-slate-300">L'application permettait l'ajout groupé d'activités sur plusieurs jours mais pas leur suppression groupée. Les utilisateurs devaient répéter l'opération jour par jour.</p>
+                </div>
+                
+                <div>
+                  <h4 class="text-white font-semibold mb-2">💡 Solution proposée</h4>
+                  <p class="text-slate-300">Alignement des capacités de suppression sur les capacités d'ajout, permettant la suppression groupée d'activités multi-dates via une transaction SQL unique avec clause WHERE IN.</p>
+                </div>
+                
+                <div>
+                  <h4 class="text-white font-semibold mb-2">✅ Résultat</h4>
+                  <p class="text-slate-300">Gain de productivité significatif pour les agents du GIGP et réduction du nombre de clics nécessaires. Proposition acceptée et implémentée par le développeur.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Étude de cas 2 -->
+          <div class="card card-stage-2 p-8">
+            <div class="relative z-10">
+              <div class="flex items-start mb-6">
+                <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <span class="text-2xl">⚠️</span>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-blue-400 mb-2">Sécurisation de l'intégrité des données</h3>
+                  <p class="text-sm text-slate-500">Projet GAP - Correction de faille critique</p>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <div>
+                  <h4 class="text-white font-semibold mb-2">🔴 Anomalie détectée</h4>
+                  <p class="text-slate-300">L'application n'imposait aucun plafond de saisie. Un utilisateur pouvait enregistrer 10 J.H (10 jours de travail) sur une seule journée de 24 heures.</p>
+                </div>
+                
+                <div>
+                  <h4 class="text-white font-semibold mb-2">🛡️ Correctif implémenté</h4>
+                  <p class="text-slate-300">Double validation : côté client (JavaScript) pour l'UX et côté serveur (PHP/SQL) pour la sécurité absolue. Vérification du cumul avant chaque INSERT/UPDATE.</p>
+                </div>
+                
+                <div>
+                  <h4 class="text-white font-semibold mb-2">✅ Impact</h4>
+                  <p class="text-slate-300">Protection contre les erreurs de saisie, garantie de l'intégrité des rapports de productivité et fiabilisation du Système d'Information métier.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -185,28 +347,34 @@
     <!-- Compétences développées -->
     <section class="px-8 py-16">
       <div class="max-w-5xl mx-auto">
-        <h2 class="section-title text-white mb-12 text-center"> Compétences développées</h2>
+        <h2 class="section-title text-white mb-12 text-center">Compétences développées</h2>
         
         <div class="grid md:grid-cols-4 gap-6">
-          
-          <div class="card card-stage-1 p-6 text-center">
+          <div class="card card-stage-2 p-6 text-center">
             <div class="relative z-10">
-              <div class="text-5xl mb-4">🌐</div>
+              <div class="text-5xl mb-4">🔍</div>
+              <h3 class="text-xl font-bold text-white mb-2">Tests & Qualité</h3>
+            </div>
+          </div>
+          
+          <div class="card card-stage-2 p-6 text-center">
+            <div class="relative z-10">
+              <div class="text-5xl mb-4">📊</div>
+              <h3 class="text-xl font-bold text-white mb-2">Gestion de données</h3>
+            </div>
+          </div>
+          
+          <div class="card card-stage-2 p-6 text-center">
+            <div class="relative z-10">
+              <div class="text-5xl mb-4">💻</div>
               <h3 class="text-xl font-bold text-white mb-2">Développement</h3>
             </div>
           </div>
           
-          <div class="card card-stage-1 p-6 text-center">
+          <div class="card card-stage-2 p-6 text-center">
             <div class="relative z-10">
-              <div class="text-5xl mb-4">💻</div>
-              <h3 class="text-xl font-bold text-white mb-2">Gestion de projet</h3>
-            </div>
-          </div>
-          
-          <div class="card card-stage-1 p-6 text-center">
-            <div class="relative z-10">
-              <div class="text-5xl mb-4">📊</div>
-              <h3 class="text-xl font-bold text-white mb-2">Analyse des objectifs d'un projet </h3>
+              <div class="text-5xl mb-4">📝</div>
+              <h3 class="text-xl font-bold text-white mb-2">Documentation</h3>
             </div>
           </div>
         </div>
@@ -216,56 +384,52 @@
     <!-- Apports du stage -->
     <section class="px-8 py-16 bg-slate-900/30">
       <div class="max-w-5xl mx-auto">
-        <h2 class="section-title text-white mb-12"> Ce que ce stage m'a apporté </h2>
+        <h2 class="section-title text-white mb-12">Ce que ce stage m'a apporté</h2>
         
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="card card-stage-1 p-8">
+          <div class="card card-stage-2 p-8">
             <div class="relative z-10">
-              <h3 class="text-2xl font-bold text-blue-400 mb-4">💡  </h3>
+              <h3 class="text-2xl font-bold text-blue-400 mb-4">💡 Compétences techniques</h3>
               <ul class="space-y-3 text-slate-300">
                 <li class="flex items-start">
                   <span class="text-blue-400 mr-2">▹</span>
-                  <span></span>
+                  <span>Maîtrise des tests fonctionnels et de la recette applicative</span>
                 </li>
                 <li class="flex items-start">
                   <span class="text-blue-400 mr-2">▹</span>
-                  <span></span>
+                  <span>Compétences en migration et nettoyage de données</span>
                 </li>
                 <li class="flex items-start">
                   <span class="text-blue-400 mr-2">▹</span>
-                  <span></span>
+                  <span>Compréhension de l'architecture Laravel (MVC)</span>
                 </li>
                 <li class="flex items-start">
                   <span class="text-blue-400 mr-2">▹</span>
-                  <span> </span>
+                  <span>Découverte des outils d'IA pour le développement (Cursor)</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="card card-stage-1 p-8">
+          <div class="card card-stage-2 p-8">
             <div class="relative z-10">
-              <h3 class="text-2xl font-bold text-blue-400 mb-4">🤝  </h3>
+              <h3 class="text-2xl font-bold text-blue-400 mb-4">🤝 Compétences relationnelles</h3>
               <ul class="space-y-3 text-slate-300">
                 <li class="flex items-start">
                   <span class="text-blue-400 mr-2">▹</span>
-                  <span>  ?</span>
+                  <span>Communication technique avec les développeurs</span>
                 </li>
                 <li class="flex items-start">
                   <span class="text-blue-400 mr-2">▹</span>
-                  <span>  ?</span>
+                  <span>Force de proposition pour améliorer les applications</span>
                 </li>
                 <li class="flex items-start">
                   <span class="text-blue-400 mr-2">▹</span>
-                  <span> ?? ?????? ??????</span>
+                  <span>Rigueur et méthode dans le travail de validation</span>
                 </li>
                 <li class="flex items-start">
                   <span class="text-blue-400 mr-2">▹</span>
-                  <span> ??? </span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-blue-400 mr-2">▹</span>
-                  <span></span>
+                  <span>Adaptation à un environnement professionnel complexe</span>
                 </li>
               </ul>
             </div>
@@ -277,19 +441,19 @@
     <!-- CTA Rapport -->
     <section class="px-8 py-16">
       <div class="max-w-3xl mx-auto">
-        <div class="card card-stage-1 p-12 text-center">
+        <div class="card card-stage-2 p-12 text-center">
           <div class="relative z-10">
-            <h2 class="text-3xl font-bold text-white mb-4">📄  ?? ?????? ????????</h2>
+            <h2 class="text-3xl font-bold text-white mb-4">📄 Rapport de stage complet</h2>
             <p class="text-slate-300 mb-8 text-lg">
-              
+              Découvrez le rapport détaillé de mon stage avec l'analyse complète de mes missions chez RATP Infrastructures.
             </p>
             <div class="flex flex-wrap gap-4 justify-center">
-              <a href="" 
+              <a href="Rapport_de_Stage_2eme_annee_Sami_Youssoufi.pdf" 
                  target="_blank" 
                  class="btn-primary">
                 📄 Consulter le rapport
               </a>
-              <a href="index.html#parcourspro" class="btn-secondary">
+              <a href="index.html#parcours" class="btn-secondary">
                 ← Retour au portfolio
               </a>
             </div>
@@ -316,17 +480,6 @@
         }
       });
     });
-    
-    // Particles animation
-    const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 50; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 20 + 's';
-      particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
-      particlesContainer.appendChild(particle);
-    }
   </script>
   
 </body>
