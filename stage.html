@@ -6,32 +6,8 @@
   <title>Stage 1ère Année - Sami Youssoufi</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="style.css" rel="stylesheet" />
-  <style>
-    .card-stage-1 {
-      background: rgba(30, 41, 59, 0.5);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-    }
-    
-    .card-stage-1:hover {
-      border-color: rgba(59, 130, 246, 0.5);
-      box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
-    }
-    
-    .badge-stage-1 {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      padding: 8px 20px;
-      border-radius: 50px;
-      display: inline-block;
-      font-weight: 600;
-      font-size: 0.875rem;
-    }
-  </style>
 </head>
 <body>
-  
-  <!-- Particles background -->
-  <div class="particles" id="particles"></div>
   
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -57,29 +33,27 @@
     
     <!-- Hero Section -->
     <section class="hero-section px-8 min-h-[50vh] flex items-center justify-center">
-      <div class="text-center relative z-10">
-        <div class="badge-stage-1 mb-6 text-white">1ère Année</div>
-        <h1 class="text-6xl font-black mb-6" style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      <div class="text-center">
+        <div class="badge mb-6 text-white">1ère Année</div>
+        <h1 class="text-6xl font-black mb-6 text-blue-400">
           Stage 1ère Année
         </h1>
         <p class="text-2xl text-blue-400 font-semibold mb-2">12 Mai - 4 juillet 2025</p>
-        <p class="text-xl text-slate-400">Initiation aux métiers de l'informatique</p>
+        <p class="text-xl text-slate-400">Lycée Condorcet - Montreuil</p>
       </div>
     </section>
 
     <!-- Introduction -->
     <section class="px-8 py-16">
       <div class="max-w-5xl mx-auto">
-        <div class="card card-stage-1 p-8">
-          <div class="relative z-10">
-            <h2 class="text-3xl font-bold text-white mb-6">📋 À propos du stage</h2>
-            <p class="text-lg leading-relaxed text-slate-300 mb-6">
-              Mon premier stage en entreprise m'a permis de découvrir les métiers de l'informatique dans un environnement professionnel. Durant 8 semaines, j'ai pu mettre en pratique mes connaissances théoriques et développer de nouvelles compétences techniques et relationnelles.
-            </p>
-            <p class="text-lg leading-relaxed text-slate-300">
-              Ce stage m'a offert l'opportunité de travailler sur des projets concrets et de comprendre les enjeux de la gestion informatique au sein d'une organisation.
-            </p>
-          </div>
+        <div class="card p-8">
+          <h2 class="text-3xl font-bold text-white mb-6">📋 À propos du stage</h2>
+          <p class="text-lg leading-relaxed text-slate-300 mb-6">
+            Mon premier stage en entreprise m'a permis de découvrir les métiers de l'informatique dans un environnement professionnel. Durant 8 semaines, j'ai pu mettre en pratique mes connaissances théoriques et développer de nouvelles compétences techniques et relationnelles.
+          </p>
+          <p class="text-lg leading-relaxed text-slate-300">
+            Ce stage m'a offert l'opportunité de travailler sur des projets concrets et de comprendre les enjeux de la gestion informatique au sein d'une organisation.
+          </p>
         </div>
       </div>
     </section>
@@ -92,94 +66,86 @@
         <div class="grid md:grid-cols-2 gap-8">
           
           <!-- Mission 1 -->
-          <div class="card card-stage-1 p-8">
-            <div class="relative z-10">
-              <div class="flex items-center mb-6">
-                <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
-                  <span class="text-4xl">📱</span>
-                </div>
-                <h3 class="text-2xl font-bold text-blue-400">Application de gestion</h3>
+          <div class="card p-8">
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
+                <span class="text-4xl">📱</span>
               </div>
-              <p class="text-slate-300 leading-relaxed mb-4">
-                Création d'une application de gestion de demandes permettant de centraliser et traiter les requêtes internes de l'entreprise.
-              </p>
-              <div class="bg-slate-800/50 rounded-lg p-4">
-                <h4 class="text-blue-400 font-semibold mb-2">Technologies</h4>
-                <ul class="space-y-2 text-slate-400 text-sm">
-                  <li>• Développement web</li>
-                  <li>• Gestion des données</li>
-                  <li>• Interface utilisateur</li>
-                </ul>
-              </div>
+              <h3 class="text-2xl font-bold text-blue-400">Application de gestion</h3>
+            </div>
+            <p class="text-slate-300 leading-relaxed mb-4">
+              Création d'une application de gestion de demandes permettant de centraliser et traiter les requêtes internes de l'entreprise.
+            </p>
+            <div class="bg-slate-800/50 rounded-lg p-4">
+              <h4 class="text-blue-400 font-semibold mb-2">Technologies</h4>
+              <ul class="space-y-2 text-slate-400 text-sm">
+                <li>• Développement web</li>
+                <li>• Gestion des données</li>
+                <li>• Interface utilisateur</li>
+              </ul>
             </div>
           </div>
 
           <!-- Mission 2 -->
-          <div class="card card-stage-1 p-8">
-            <div class="relative z-10">
-              <div class="flex items-center mb-6">
-                <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
-                  <span class="text-4xl">🎫</span>
-                </div>
-                <h3 class="text-2xl font-bold text-blue-400">Gestion de tickets</h3>
+          <div class="card p-8">
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
+                <span class="text-4xl">🎫</span>
               </div>
-              <p class="text-slate-300 leading-relaxed mb-4">
-                Prise en charge et résolution des incidents informatiques remontés par les utilisateurs de l'entreprise.
-              </p>
-              <div class="bg-slate-800/50 rounded-lg p-4">
-                <h4 class="text-blue-400 font-semibold mb-2">Compétences</h4>
-                <ul class="space-y-2 text-slate-400 text-sm">
-                  <li>• Support technique</li>
-                  <li>• Diagnostic de problèmes</li>
-                  <li>• Communication utilisateur</li>
-                </ul>
-              </div>
+              <h3 class="text-2xl font-bold text-blue-400">Gestion de tickets</h3>
+            </div>
+            <p class="text-slate-300 leading-relaxed mb-4">
+              Prise en charge et résolution des incidents informatiques remontés par les utilisateurs de l'entreprise.
+            </p>
+            <div class="bg-slate-800/50 rounded-lg p-4">
+              <h4 class="text-blue-400 font-semibold mb-2">Compétences</h4>
+              <ul class="space-y-2 text-slate-400 text-sm">
+                <li>• Support technique</li>
+                <li>• Diagnostic de problèmes</li>
+                <li>• Communication utilisateur</li>
+              </ul>
             </div>
           </div>
 
           <!-- Mission 3 -->
-          <div class="card card-stage-1 p-8">
-            <div class="relative z-10">
-              <div class="flex items-center mb-6">
-                <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
-                  <span class="text-4xl">🖥️</span>
-                </div>
-                <h3 class="text-2xl font-bold text-blue-400">Installation réseau</h3>
+          <div class="card p-8">
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
+                <span class="text-4xl">🖥️</span>
               </div>
-              <p class="text-slate-300 leading-relaxed mb-4">
-                Configuration et déploiement de postes de travail au sein du réseau d'entreprise avec intégration complète.
-              </p>
-              <div class="bg-slate-800/50 rounded-lg p-4">
-                <h4 class="text-blue-400 font-semibold mb-2">Réalisations</h4>
-                <ul class="space-y-2 text-slate-400 text-sm">
-                  <li>• Configuration réseau</li>
-                  <li>• Installation OS</li>
-                  <li>• Tests de connectivité</li>
-                </ul>
-              </div>
+              <h3 class="text-2xl font-bold text-blue-400">Installation réseau</h3>
+            </div>
+            <p class="text-slate-300 leading-relaxed mb-4">
+              Configuration et déploiement de postes de travail au sein du réseau d'entreprise avec intégration complète.
+            </p>
+            <div class="bg-slate-800/50 rounded-lg p-4">
+              <h4 class="text-blue-400 font-semibold mb-2">Réalisations</h4>
+              <ul class="space-y-2 text-slate-400 text-sm">
+                <li>• Configuration réseau</li>
+                <li>• Installation OS</li>
+                <li>• Tests de connectivité</li>
+              </ul>
             </div>
           </div>
 
           <!-- Mission 4 -->
-          <div class="card card-stage-1 p-8">
-            <div class="relative z-10">
-              <div class="flex items-center mb-6">
-                <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
-                  <span class="text-4xl">⚙️</span>
-                </div>
-                <h3 class="text-2xl font-bold text-blue-400">Gestion logiciels</h3>
+          <div class="card p-8">
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
+                <span class="text-4xl">⚙️</span>
               </div>
-              <p class="text-slate-300 leading-relaxed mb-4">
-                Administration du parc logiciel incluant l'installation, la mise à jour et la maintenance des applications.
-              </p>
-              <div class="bg-slate-800/50 rounded-lg p-4">
-                <h4 class="text-blue-400 font-semibold mb-2">Activités</h4>
-                <ul class="space-y-2 text-slate-400 text-sm">
-                  <li>• Déploiement logiciels</li>
-                  <li>• Gestion licences</li>
-                  <li>• Assistance utilisateurs</li>
-                </ul>
-              </div>
+              <h3 class="text-2xl font-bold text-blue-400">Gestion logiciels</h3>
+            </div>
+            <p class="text-slate-300 leading-relaxed mb-4">
+              Administration du parc logiciel incluant l'installation, la mise à jour et la maintenance des applications.
+            </p>
+            <div class="bg-slate-800/50 rounded-lg p-4">
+              <h4 class="text-blue-400 font-semibold mb-2">Activités</h4>
+              <ul class="space-y-2 text-slate-400 text-sm">
+                <li>• Déploiement logiciels</li>
+                <li>• Gestion licences</li>
+                <li>• Assistance utilisateurs</li>
+              </ul>
             </div>
           </div>
 
@@ -193,32 +159,24 @@
         <h2 class="section-title text-white mb-12 text-center">Compétences développées</h2>
         
         <div class="grid md:grid-cols-4 gap-6">
-          <div class="card card-stage-1 p-6 text-center">
-            <div class="relative z-10">
-              <div class="text-5xl mb-4">🛠️</div>
-              <h3 class="text-xl font-bold text-white mb-2">Support Technique</h3>
-            </div>
+          <div class="card p-6 text-center">
+            <div class="text-5xl mb-4">🛠️</div>
+            <h3 class="text-xl font-bold text-white mb-2">Support Technique</h3>
           </div>
           
-          <div class="card card-stage-1 p-6 text-center">
-            <div class="relative z-10">
-              <div class="text-5xl mb-4">🌐</div>
-              <h3 class="text-xl font-bold text-white mb-2">Réseau</h3>
-            </div>
+          <div class="card p-6 text-center">
+            <div class="text-5xl mb-4">🌐</div>
+            <h3 class="text-xl font-bold text-white mb-2">Réseau</h3>
           </div>
           
-          <div class="card card-stage-1 p-6 text-center">
-            <div class="relative z-10">
-              <div class="text-5xl mb-4">💻</div>
-              <h3 class="text-xl font-bold text-white mb-2">Développement</h3>
-            </div>
+          <div class="card p-6 text-center">
+            <div class="text-5xl mb-4">💻</div>
+            <h3 class="text-xl font-bold text-white mb-2">Développement</h3>
           </div>
           
-          <div class="card card-stage-1 p-6 text-center">
-            <div class="relative z-10">
-              <div class="text-5xl mb-4">📊</div>
-              <h3 class="text-xl font-bold text-white mb-2">Gestion</h3>
-            </div>
+          <div class="card p-6 text-center">
+            <div class="text-5xl mb-4">📊</div>
+            <h3 class="text-xl font-bold text-white mb-2">Gestion</h3>
           </div>
         </div>
       </div>
@@ -230,52 +188,48 @@
         <h2 class="section-title text-white mb-12">Ce que ce stage m'a apporté</h2>
         
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="card card-stage-1 p-8">
-            <div class="relative z-10">
-              <h3 class="text-2xl font-bold text-blue-400 mb-4">💡 Compétences techniques</h3>
-              <ul class="space-y-3 text-slate-300">
-                <li class="flex items-start">
-                  <span class="text-blue-400 mr-2">▹</span>
-                  <span>Maîtrise des outils de support informatique</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-blue-400 mr-2">▹</span>
-                  <span>Compréhension des infrastructures réseau</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-blue-400 mr-2">▹</span>
-                  <span>Développement d'applications métier</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-blue-400 mr-2">▹</span>
-                  <span>Gestion de projets informatiques</span>
-                </li>
-              </ul>
-            </div>
+          <div class="card p-8">
+            <h3 class="text-2xl font-bold text-blue-400 mb-4">💡 Compétences techniques</h3>
+            <ul class="space-y-3 text-slate-300">
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2">▹</span>
+                <span>Maîtrise des outils de support informatique</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2">▹</span>
+                <span>Compréhension des infrastructures réseau</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2">▹</span>
+                <span>Développement d'applications métier</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2">▹</span>
+                <span>Gestion de projets informatiques</span>
+              </li>
+            </ul>
           </div>
 
-          <div class="card card-stage-1 p-8">
-            <div class="relative z-10">
-              <h3 class="text-2xl font-bold text-blue-400 mb-4">🤝 Compétences relationnelles</h3>
-              <ul class="space-y-3 text-slate-300">
-                <li class="flex items-start">
-                  <span class="text-blue-400 mr-2">▹</span>
-                  <span>Communication avec les utilisateurs</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-blue-400 mr-2">▹</span>
-                  <span>Travail en équipe pluridisciplinaire</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-blue-400 mr-2">▹</span>
-                  <span>Gestion des priorités</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-blue-400 mr-2">▹</span>
-                  <span>Autonomie et prise d'initiative</span>
-                </li>
-              </ul>
-            </div>
+          <div class="card p-8">
+            <h3 class="text-2xl font-bold text-blue-400 mb-4">🤝 Compétences relationnelles</h3>
+            <ul class="space-y-3 text-slate-300">
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2">▹</span>
+                <span>Communication avec les utilisateurs</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2">▹</span>
+                <span>Travail en équipe pluridisciplinaire</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2">▹</span>
+                <span>Gestion des priorités</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2">▹</span>
+                <span>Autonomie et prise d'initiative</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -284,22 +238,20 @@
     <!-- CTA Rapport -->
     <section class="px-8 py-16">
       <div class="max-w-3xl mx-auto">
-        <div class="card card-stage-1 p-12 text-center">
-          <div class="relative z-10">
-            <h2 class="text-3xl font-bold text-white mb-4">📄 Rapport de stage complet</h2>
-            <p class="text-slate-300 mb-8 text-lg">
-              Découvrez le rapport détaillé de mon stage avec l'analyse complète de mes missions et réalisations.
-            </p>
-            <div class="flex flex-wrap gap-4 justify-center">
-              <a href="Rapport_de_Stage de_Sami_Youssoufi.pdf" 
-                 target="_blank" 
-                 class="btn-primary">
-                📄 Consulter le rapport
-              </a>
-              <a href="index.html#parcourspro" class="btn-secondary">
-                ← Retour au portfolio
-              </a>
-            </div>
+        <div class="card p-12 text-center">
+          <h2 class="text-3xl font-bold text-white mb-4">📄 Rapport de stage complet</h2>
+          <p class="text-slate-300 mb-8 text-lg">
+            Découvrez le rapport détaillé de mon stage avec l'analyse complète de mes missions et réalisations.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a href="Rapport_de_Stage de_Sami_Youssoufi.pdf" 
+               target="_blank" 
+               class="btn-primary">
+              📄 Consulter le rapport
+            </a>
+            <a href="index.html#parcourspro" class="btn-secondary">
+              ← Retour au portfolio
+            </a>
           </div>
         </div>
       </div>
@@ -323,17 +275,6 @@
         }
       });
     });
-    
-    // Particles animation
-    const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 50; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 20 + 's';
-      particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
-      particlesContainer.appendChild(particle);
-    }
   </script>
   
 </body>
