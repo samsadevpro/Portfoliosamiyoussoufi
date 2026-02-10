@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projet — Ecommerce</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 250px;
+      background: #16213e;
+      border-right: 1px solid #2d3748;
+      z-index: 1000;
+    }
+
+    .sidebar h1 {
+      padding: 24px 20px;
+      font-size: 1.4rem;
+      color: #4a9eff;
+      border-bottom: 1px solid #2d3748;
+    }
+
+    .sidebar p {
+      padding: 8px 20px 16px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 12px 20px;
+      color: #94a3b8;
+      text-decoration: none;
+      border-left: 3px solid transparent;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #4a9eff;
+      background: #1a1a2e;
+      border-left-color: #4a9eff;
+    }
+
+    /* Main */
+    .main-content {
+      margin-left: 250px;
+      padding: 40px;
+    }
+
+    /* Retour */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: .9rem;
+      margin-bottom: 28px;
+    }
+
+    .back-link:hover {
+      color: #4a9eff;
+    }
+
+    /* En-tête projet */
+    .project-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      color: #94a3b8;
+      margin-bottom: 20px;
+      max-width: 640px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 600;
+      background: rgba(74, 158, 255, .12);
+      border: 1px solid rgba(74, 158, 255, .35);
+      color: #4a9eff;
+    }
+
+    .badge.green {
+      background: rgba(56, 217, 169, .1);
+      border-color: rgba(56, 217, 169, .35);
+      color: #38d9a9;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .info-chip {
+      background: #16213e;
+      border: 1px solid #2d3748;
+      border-radius: 8px;
+      padding: 10px 16px;
+    }
+
+    .info-chip:hover {
+      border-color: #4a9eff;
+    }
+
+    .info-chip small {
+      display: block;
+      font-size: .72rem;
+      color: #94a3b8;
+    }
+
+    .info-chip span {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      border-bottom: 2px solid #4a9eff;
+      display: inline-block;
+      padding-bottom: 6px;
+      margin-bottom: 20px;
+    }
+
+    /* Card générique */
+    .card {
+      background: #16213e;
+      border: 1px solid #2d3748;
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .card:hover {
+      border-color: #4a9eff;
+    }
+
+    .card p {
+      color: #cbd5e0;
+      margin-bottom: 12px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Outils */
+    .tools-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .skill-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #1a1a2e;
+      border: 1px solid #4a9eff;
+      border-radius: 20px;
+      color: #4a9eff;
+      font-size: .9rem;
+    }
+
+    /* Cahier des charges */
+    .cdc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .cdc-block {
+      background: #16213e;
+      border: 1px solid #2d3748;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .cdc-block:hover {
+      border-color: #4a9eff;
+    }
+
+    .cdc-block h4 {
+      color: #4a9eff;
+      font-size: .95rem;
+      margin-bottom: 12px;
+    }
+
+    .cdc-block ul {
+      list-style: none;
+    }
+
+    .cdc-block ul li {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(45, 55, 72, .5);
+      color: #cbd5e0;
+      font-size: .9rem;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .cdc-block ul li:last-child {
+      border-bottom: none;
+    }
+
+    .cdc-block ul li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #4a9eff;
+      margin-top: 8px;
+    }
+
+    /* Gantt statique */
+    .gantt-legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .leg {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .8rem;
+      color: #94a3b8;
+    }
+
+    .leg-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .gantt-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .85rem;
+    }
+
+    .gantt-table th,
+    .gantt-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #2d3748;
+      text-align: left;
+    }
+
+    .gantt-table thead th {
+      color: #94a3b8;
+      font-weight: 600;
+      background: rgba(74, 158, 255, .06);
+    }
+
+    .gantt-table tbody tr:hover {
+      background: rgba(74, 158, 255, .04);
+    }
+
+    .gantt-table td:first-child {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .gantt-table td:nth-child(2),
+    .gantt-table td:nth-child(3),
+    .gantt-table td:nth-child(4) {
+      color: #94a3b8;
+      white-space: nowrap;
+    }
+
+    .bar-cell {
+      padding: 8px 14px !important;
+    }
+
+    .bar-wrap {
+      background: #1a1a2e;
+      border-radius: 4px;
+      height: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding-left: 6px;
+      font-size: .7rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .85);
+    }
+
+    .blue {
+      background: #4a9eff;
+    }
+
+    .amber {
+      background: #fbbf24;
+    }
+
+    .red {
+      background: #f87171;
+    }
+
+    .green {
+      background: #38d9a9;
+    }
+
+    /* Conclusion */
+    .concl-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .concl-block {
+      background: #16213e;
+      border: 1px solid #2d3748;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .concl-block:hover {
+      border-color: #4a9eff;
+    }
+
+    .concl-block h4 {
+      color: #4a9eff;
+      font-size: .95rem;
+      margin-bottom: 10px;
+    }
+
+    .concl-block p {
+      color: #cbd5e0;
+      font-size: .9rem;
+    }
+
+    .verdict {
+      margin-top: 16px;
+      background: rgba(74, 158, 255, .06);
+      border: 1px solid rgba(74, 158, 255, .25);
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .verdict h4 {
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .verdict p {
+      color: #cbd5e0;
+      font-size: .9rem;
+    }
+
+    /* Carrousel d'images */
+    .carousel-container {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      background: #16213e;
+      border: 1px solid #2d3748;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .carousel-container:hover {
+      border-color: #4a9eff;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .carousel-slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a2e;
+    }
+
+    .carousel-slide img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(74, 158, 255, 0.8);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(74, 158, 255, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-btn.prev {
+      left: 20px;
+    }
+
+    .carousel-btn.next {
+      right: 20px;
+    }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      border: 2px solid rgba(74, 158, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .indicator.active {
+      background: #4a9eff;
+      border-color: #4a9eff;
+      transform: scale(1.2);
+    }
+
+    /* Lightbox modal */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-overlay img {
+      max-width: 92%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      cursor: default;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.2);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .btn-gantt {
+      display: inline-block;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #4a9eff, #6c63ff);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+      margin-top: 1rem;
+    }
+
+    .btn-gantt:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(74, 158, 255, 0.45);
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 24px;
+      }
+
+      .cdc-grid,
+      .concl-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .carousel-wrapper {
+        height: 300px;
+      }
+
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+
+      .carousel-btn.prev {
+        left: 10px;
+      }
+
+      .carousel-btn.next {
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="p-1 mt-2">
+      <h1 class="text-xl md:text-2xl font-bold text-blue-400">SAMI YOUSSOUFI</h1>
+      <p class="text-sm text-slate-400 mt-2">Etudiant en BTS SIO</p>
+    </div>
+    <nav class="mt-1 flex flex-col space-y-2 px-4">
+      <a href="index.html#" class="nav-link">Accueil</a>
+      <a href="index.html#profil" class="nav-link">Profil</a>
+      <a href="index.html#formation" class="nav-link">Formation</a>
+      <a href="index.html#certifications" class="nav-link">Certifications / Attestations</a>
+      <a href="index.html#parcours" class="nav-link">Parcours</a>
+      <a href="index.html#competences" class="nav-link">Compétences</a>
+      <a href="index.html#projets" class="nav-link">Projets</a>
+      <a href="index.html#veille-tech" class="nav-link">Veille Technologique</a>
+      <a href="index.html#tableau-synthese" class="nav-link">Tableau Synthèse</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+
+    <a href="index.html#projets" class="back-link">← Retour aux projets</a>
+
+    <h2 class="project-title">Site e-commerce de Cahiers</h2>
+    <p class="project-desc">Plateforme en ligne dédiée à la vente de cahiers et d'articles de papeterie, optimisant la
+      gestion commerciale et l'expérience client.</p>
+
+    <div class="badge-row">
+      <span class="badge">Développement Web</span>
+      <span class="badge">Full Stack</span>
+      <span class="badge green">✓ Terminé</span>
+    </div>
+
+    <!-- Carrousel d'images -->
+    <div class="carousel-container">
+      <div class="carousel-wrapper">
+        <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+        <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+
+        <div class="carousel-slides" id="carouselSlides">
+          <div class="carousel-slide">
+            <img src="./img-projet/site_ecommerce/acceuil.png" alt="Page d'accueil">
+          </div>
+          <div class="carousel-slide">
+            <img src="./img-projet/site_ecommerce/recherche.png" alt="Tableau Kanban">
+          </div>
+          <div class="carousel-slide">
+            <img src="./img-projet/site_ecommerce/panier.png" alt="Dashboard">
+          </div>
+          <div class="carousel-slide">
+            <img src="./img-projet/site_ecommerce/gestion-taches.png" alt="Gestion des tâches">
+          </div>
+          <div class="carousel-slide">
+            <img src="./img-projet/site_ecommerce/profil-utilisateur.png" alt="Profil utilisateur">
+          </div>
+        </div>
+
+        <div class="carousel-indicators" id="carouselIndicators"></div>
+      </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <div id="introduction" class="section">
+      <h3 class="section-title">Introduction</h3>
+      <div class="card">
+        <p>Le projet "Site E-commerce de Cahiers" a pour contexte le développement d'une plateforme de vente en ligne
+          spécialisée dans la papeterie. L'objectif principal est de proposer une expérience d'achat intuitive et
+          personnalisée tout en facilitant la gestion interne des produits et des stocks.</p>
+        <p>Cette solution vise à permettre aux clients de rechercher, commander et suivre leurs achats efficacement,
+          tout en offrant aux administrateurs des outils performants pour optimiser la gestion commerciale du catalogue.
+        </p>
+        <p>Le projet met l'accent sur la fluidité de navigation et la robustesse de la gestion des commandes et des
+          stocks en temps réel.</p>
+      </div>
+    </div>
+
+    <!-- 2. Outils -->
+    <div id="outils" class="section">
+      <h3 class="section-title">Outils utilisés</h3>
+      <div class="tools-row">
+        <span class="skill-badge">PHP</span>
+        <span class="skill-badge">SQL</span>
+        <span class="skill-badge">HTML</span>
+        <span class="skill-badge">CSS</span>
+        <span class="skill-badge">JavaScript</span>
+        <span class="skill-badge">Laragon</span>
+      </div>
+    </div>
+
+    <!-- 3. Cahier des charges -->
+    <div id="cahier" class="section">
+      <h3 class="section-title">Cahier des charges</h3>
+      <div style="text-align: center; padding: 2rem 0;">
+        <p style="color: #cbd5e0; font-size: 1rem; margin-bottom: 1.2rem;">Voici le cahier des charges détaillant
+          l'ensemble des spécifications et exigences du projet.</p>
+        <a href="./Cahierdescharges/SD_CC.pdf" class="btn-primary" target="_blank"
+          style="display: inline-block; padding: 14px 36px; background: linear-gradient(135deg, var(--accent), var(--accent2, #6c63ff)); color: #fff; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(108,99,255,0.3);"
+          onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(108,99,255,0.45)'"
+          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(108,99,255,0.3)'">📄
+          Voir cahier des charges</a>
+      </div>
+    </div>
+
+    <!-- 4. Gantt statique -->
+    <div id="gant" class="section">
+      <h3 class="section-title">Calendrier</h3>
+      <div style="text-align: center;">
+        <img src="./img-projet/site_ecommerce/SD_Gant.png" alt="Diagramme de Gantt"
+          style="max-width: 100%; border-radius: 10px; border: 1px solid #2d3748;">
+        <br>
+        <button class="btn-gantt" onclick="openLightbox('./img-projet/site_ecommerce/SD_Gant.png')">🔍 Voir
+          Gantt</button>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+      <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+      <img id="lightbox-img" src="" alt="Zoom Gantt">
+    </div>
+
+    <!-- 5. Conclusion -->
+    <div id="conclusion" class="section">
+      <h3 class="section-title">Conclusion</h3>
+      <div class="card">
+        <p>Ce projet m'a permis de mettre en place un système d'automatisation complet pour le garage pédagogique du
+          lycée, en utilisant l'écosystème Google Workspace (Forms, Sheets, Apps Script). L'automatisation des accusés
+          de réception et des devis a considérablement réduit le temps administratif.</p>
+        <p>La principale difficulté a résidé dans la gestion conditionnelle des différents types de devis selon la
+          complexité des interventions.</p>
+        <p>Ce projet m'a permis de développer des compétences concrètes en scripting JavaScript, en automatisation de
+          processus métier et en analyse des besoins utilisateurs.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+    const indicatorsContainer = document.getElementById('carouselIndicators');
+
+    // Créer les indicateurs
+    for (let i = 0; i < totalSlides; i++) {
+      const indicator = document.createElement('div');
+      indicator.className = 'indicator' + (i === 0 ? ' active' : '');
+      indicator.onclick = () => goToSlide(i);
+      indicatorsContainer.appendChild(indicator);
+    }
+
+    function updateCarousel() {
+      const slidesContainer = document.getElementById('carouselSlides');
+      slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      // Mettre à jour les indicateurs
+      const indicators = document.querySelectorAll('.indicator');
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function changeSlide(direction) {
+      currentSlide += direction;
+      if (currentSlide < 0) currentSlide = totalSlides - 1;
+      if (currentSlide >= totalSlides) currentSlide = 0;
+      updateCarousel();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
+
+    // Défilement automatique (optionnel)
+    setInterval(() => {
+      changeSlide(1);
+    }, 5000);
+
+    // Lightbox
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closeLightbox(e) {
+      if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
+        document.getElementById('lightbox').classList.remove('active');
+      }
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        document.getElementById('lightbox').classList.remove('active');
+      }
+    });
+  </script>
+
+</body>
+
+</html>
