@@ -102,6 +102,14 @@
             color: #111827 !important;
         }
 
+        body.light-theme .profile-image-caption .text-white {
+            color: #ffffff !important;
+        }
+
+        body.light-theme .profile-image-caption .text-apple-accent {
+            color: #60a5fa !important;
+        }
+
         body.light-theme .theme-toggle {
             background: rgba(255, 255, 255, 0.8);
             color: #111827 !important;
@@ -257,6 +265,10 @@
         body.light-theme .text-apple-muted,
         body.light-theme .text-apple-muted * {
             color: var(--muted) !important;
+        }
+
+        body.light-theme #experiences .text-gray-300 {
+            color: #4b5563 !important;
         }
 
         body.light-theme .bg-white\/5 {
@@ -462,7 +474,7 @@
                 <div class="glass-card rounded-3xl p-4 sm:p-6 border border-white/10 relative group overflow-hidden">
                     <img src="img-avatar/Avatar.jpeg" alt="Sami Y." class="w-full h-auto rounded-2xl object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
-                    <div class="absolute bottom-8 left-8 right-8">
+                    <div class="profile-image-caption absolute bottom-8 left-8 right-8">
                         <p class="text-xs font-mono text-apple-accent uppercase tracking-wider mb-1" data-i18n="profile.badge">Computer science student</p>
                         <p class="text-lg font-semibold text-white" data-i18n="profile.focus">System and network security</p>
                     </div>
