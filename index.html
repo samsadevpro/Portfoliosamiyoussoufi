@@ -1,291 +1,364 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="fr" class="dark scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sami Youssoufi - Etudiant en BTS SIO</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="style.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sami Y. — Etudiant en Informatique</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        apple: {
+                            bg: '#000000',
+                            card: '#161618',
+                            cardHover: '#1d1d20',
+                            border: '#38383a',
+                            accent: '#0A84FF', // Apple Blue
+                            accentHover: '#409cff',
+                            muted: '#86868b',
+                            lightText: '#f5f5f7'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for clean icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #000000;
+            color: #f5f5f7;
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+        }
+        :root {
+            --bg: #000000;
+            --bg-soft: #0e1117;
+            --surface: rgba(22, 22, 24, 0.7);
+            --surface-strong: rgba(29, 29, 32, 0.85);
+            --text: #f5f5f7;
+            --muted: #86868b;
+            --border: rgba(255, 255, 255, 0.08);
+            --button-solid: #ffffff;
+            --button-solid-text: #000000;
+            --mobile-bg: rgba(0, 0, 0, 0.95);
+        }
+
+        body.light-theme {
+            --bg: #f3f4f6;
+            --bg-soft: #e5e7eb;
+            --surface: rgba(255, 255, 255, 0.85);
+            --surface-strong: rgba(255, 255, 255, 0.98);
+            --text: #111827;
+            --muted: #4b5563;
+            --border: rgba(17, 24, 39, 0.12);
+            --button-solid: #111827;
+            --button-solid-text: #ffffff;
+            --mobile-bg: rgba(255, 255, 255, 0.96);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        body.light-theme .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: var(--border);
+        }
+
+        .glass-card {
+            background: var(--surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .glass-card:hover {
+            background: var(--surface-strong);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        body.light-theme .glass-card:hover {
+            border-color: rgba(17, 24, 39, 0.18);
+        }
+
+        body.light-theme .text-white {
+            color: #111827 !important;
+        }
+
+        body.light-theme .theme-toggle {
+            background: rgba(255, 255, 255, 0.8);
+            color: #111827 !important;
+        }
+
+        body.light-theme .theme-toggle span,
+        body.light-theme .theme-toggle i,
+        body.light-theme .theme-toggle {
+            color: #111827 !important;
+        }
+
+        .theme-toggle {
+            color: var(--text) !important;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+        }
+
+        .lang-toggle {
+            min-width: 72px;
+            justify-content: center;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-glow {
+            position: absolute;
+            inset: 0;
+            background: none;
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-size: clamp(3.2rem, 7vw, 8rem);
+            line-height: 0.9;
+            letter-spacing: -0.08em;
+            font-weight: 900;
+            color: #f5f5f7;
+        }
+
+        body.light-theme .hero-title .text-white {
+            color: #111827 !important;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 1.3vw, 1.8rem);
+            line-height: 1.45;
+            max-width: 760px;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.72);
+        }
+
+        .hero-cta {
+            min-width: 220px;
+            padding: 1.1rem 1.8rem;
+            border-radius: 9999px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-1px);
+        }
+
+        .hero-console {
+            max-width: 860px;
+            margin: 2rem auto 0;
+            background: rgba(18, 26, 35, 0.78);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+            overflow: hidden;
+        }
+
+        .hero-console-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.25rem 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            background: rgba(255,255,255,0.015);
+        }
+
+        .hero-console-body {
+            padding: 1.35rem 1.4rem 1.35rem;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            min-height: 120px;
+        }
+
+        .tools-marquee {
+            overflow: hidden;
+        }
+
+        .tools-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: tools-marquee-scroll 36s linear infinite;
+        }
+
+        .tools-marquee:hover .tools-marquee-track,
+        .tools-marquee:focus-within .tools-marquee-track {
+            animation-play-state: paused;
+        }
+
+        .tools-marquee-group {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+        }
+
+        .tools-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.75rem 3.5rem;
+            color: var(--muted);
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .tools-marquee-item i {
+            color: #3b82f6;
+            font-size: 1.9rem;
+        }
+
+        .tools-marquee-separator {
+            color: var(--border);
+            font-size: 1.75rem;
+            margin: 0 0.5rem;
+        }
+
+        @keyframes tools-marquee-scroll {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .tools-marquee-track {
+                animation: none;
+            }
+
+            .tools-marquee-group[aria-hidden="true"] {
+                display: none;
+            }
+        }
+
+        body.light-theme .text-apple-muted,
+        body.light-theme .text-apple-muted * {
+            color: var(--muted) !important;
+        }
+
+        body.light-theme .bg-white\/5 {
+            background-color: rgba(255, 255, 255, 0.75) !important;
+        }
+
+        body.light-theme .bg-white\/10 {
+            background-color: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        body.light-theme .bg-black\/95 {
+            background: var(--mobile-bg) !important;
+        }
+
+        body.light-theme .border-white\/10,
+        body.light-theme .border-white\/20,
+        body.light-theme .border-white\/5 {
+            border-color: var(--border) !important;
+        }
+
+        body.light-theme .bg-white {
+            background: var(--button-solid) !important;
+        }
+
+        body.light-theme .text-black {
+            color: var(--button-solid-text) !important;
+        }
+
+        body.light-theme .glass-card button,
+        body.light-theme .glass-card a,
+        body.light-theme .glass-card span,
+        body.light-theme .glass-card p,
+        body.light-theme .glass-card h3,
+        body.light-theme .glass-card h2,
+        body.light-theme .glass-card h1 {
+            color: inherit;
+        }
+
+        body.light-theme .hero-title {
+            color: #111827 !important;
+        }
+
+        body.light-theme .hero-subtitle {
+            color: #374151 !important;
+        }
+
+        body.light-theme .hero-console {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(17, 24, 39, 0.08);
+        }
+
+        body.light-theme .hero-console-body,
+        body.light-theme .hero-console-header,
+        body.light-theme #terminal-input,
+        body.light-theme #terminal-output,
+        body.light-theme #terminal-output p,
+        body.light-theme #terminal-form label,
+        body.light-theme #terminal-form input {
+            color: #111827 !important;
+        }
+
+        .apple-gradient-text {
+            background: linear-gradient(135deg, #f5f5f7 0%, #86868b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light-theme .apple-gradient-text {
+            background: linear-gradient(135deg, #111827 0%, #4b5563 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .apple-blue-gradient {
+            background: linear-gradient(135deg, #0A84FF 0%, #0056b3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38383a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb-hover {
+            background: #0A84FF;
+        }
+    </style>
 </head>
+<body class="antialiased selection:bg-apple-accent selection:text-white">
 
-<body>
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="p-1 mt-4">
-      <h1 class="text-2xl font-bold text-blue-400">SAMI YOUSSOUFI</h1>
-      <p class="text-sm text-slate-400 mt-2">Etudiant en BTS SIO</p>
-    </div>
-    <nav class="mt-8 flex flex-col space-y-1 px-1">
-      <a href="#accueil" class="nav-link">Accueil</a>
-      <a href="#profil" class="nav-link">Profil</a>
-      <a href="#formation" class="nav-link">Formation</a>
-      <a href="#certifications" class="nav-link">Certifications / Attestations</a>
-      <a href="#parcours" class="nav-link">Parcours</a>
-      <a href="#competences" class="nav-link">Compétences</a>
-      <a href="#projets" class="nav-link">Projets</a>
-      <a href="#veille-tech" class="nav-link">Veille Technologique</a>
-      <a href="#tableau-synthese" class="nav-link">Tableau Synthèse</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-  </aside>
-
-  <!-- Main content -->
-  <main class="main-content" style="margin-left: 280px;">
-
-    <!-- Hero Section -->
-    <section id="accueil" class="hero-section px-8">
-      <div class="text-center relative z-10">
-        <h1 class="hero-title">Bienvenue sur mon portfolio</h1>
-        <p class="text-2xl text-slate-400 mt-6 animate-fade-in">Sami Youssoufi | Etudiant en BTS SIO SLAM</p>
-        <div class="mt-12">
-          <a href="#contact" class="btn-secondary">Me contacter</a>
-          <a href="#projets" class="btn-secondary ml-4">Voir mes projets</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Profil -->
-    <section id="profil" class="px-8 py-24">
-      <h2 class="section-title text-white">À propos</h2>
-      <div class="max-w-4x4">
-        <div class="card">
-          <div class="relative z-10">
-            <h3 class="text-3xl font-bold text-blue-400 mb-6">Sami Youssoufi</h3>
-            <p class="text-lg leading-relaxed text-slate-300">
-              Actuellement étudiant au lycée Turgot à Paris en 2ème année de BTS SIO (Services Informatiques aux
-              Organisations) dans l'option SLAM (Solutions Logicielles et Application Métier)une option spécialisée pour
-              le développement.
-              <br><br>Etant toujours en cours d'étude, je vous propose sur ce portfolio de retrouver ci-dessous les
-              différentes études, et projet professionnel que j'ai pu entreprendre au sein de ma carrière.
-              <br><br>Vous trouverez ci-dessous mon CV ainsi que mes différents projets
-            </p>
-            <div class="mt-8">
-              <a href="Youssoufi_Sami_cv.pdf" download class="btn-primary">
-                📄 Télécharger mon CV
-              </a>
-              <a href="Youssoufi_Sami_cv.pdf" target="_blank" class="btn-primary">
-                📄 Voir mon CV
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Formation -->
-    <section id="formation" class="px-8 py-24 bg-slate-900/30">
-      <h2 class="section-title text-white text-center">Formation BTS SIO</h2>
-      <p class="text-lg text-slate-300 max-w-8xl mx-0 mb-12 text-left">
-        Le BTS SIO (Services Informatiques aux Organisations) est une formation de deux ans qui prépare
-        aux métiers de l’informatique en entreprise. Il propose deux spécialités complémentaires :
-        <strong>SISR</strong> (Solutions d’Infrastructure, Systèmes et Réseaux) et
-        <strong>SLAM</strong> (Solutions Logicielles et Applications Métier).
-        <br><br>L’objectif est de former des professionnels capables de gérer des projets informatiques,
-        de développer des applications, et de maintenir des infrastructures IT.
-      </p>
-
-      <div class="flex flex-wrap justify-center gap-8">
-        <!-- Option SISR -->
-        <div class="card opacity-80 w-96 p-8 flex flex-col items-center relative">
-          <div class="relative z-10 w-full">
-            <div class="text-6xl mb-6 text-center"></div>
-            <h3 class="text-3xl font-bold text-white mb-4 text-center">Option SISR</h3>
-            <p class="text-slate-300 mb-6 text-center">Solutions d'Infrastructure, Systèmes et Réseaux</p>
-            <ul class="space-y-3 text-slate-400 list-disc list-inside text-lg text-left">
-              <li>Administration et configuration réseau</li>
-              <li>Cybersécurité et protection des données</li>
-              <li>Maintenance et dépannage d’infrastructures IT</li>
-              <li>Gestion de serveurs locaux et cloud</li>
-              <li>Surveillance et optimisation des systèmes</li>
-            </ul>
-          </div>
-          <a href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-a-solutions-d-infrastructure-systemes-et-reseaux"
-            target="_blank" class="btn-primary mt-6 z-20 relative w-full text-center">
-            En savoir plus SISR
-          </a>
-        </div>
-
-        <!-- Option SLAM -->
-        <div class="card border-2 border-blue-500 w-96 p-8 relative flex flex-col items-center">
-          <div
-            class="absolute top-4 right-4 z-10 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-bold px-3 py-1 rounded-full">
-            MON OPTION
-          </div>
-          <div class="relative z-10 w-full">
-            <div class="text-6xl mb-6 text-center"></div>
-            <h3 class="text-3xl font-bold text-blue-400 mb-4 text-center">Option SLAM</h3>
-            <p class="text-slate-300 mb-6 text-center">Solutions Logicielles et Applications Métier</p>
-            <ul class="space-y-3 text-slate-400 list-disc list-inside text-lg text-left">
-              <li>Développement d’applications web et mobile</li>
-              <li>Conception et gestion de bases de données</li>
-              <li>Création et utilisation d’API</li>
-              <li>Gestion de projets informatiques</li>
-              <li>Analyse des besoins et prototypage</li>
-            </ul>
-          </div>
-          <a href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers"
-            target="_blank" class="btn-secondary mt-6 z-20 relative w-full text-center">
-            En savoir plus SLAM
-          </a>
-        </div>
-      </div>
-    </section>
-
-
-
-
-
-
-
-
-    <!-- Certifications -->
-    <section id="certifications" class="px-8 py-24">
-      <h2 class="section-title text-white">Certifications / Attestations</h2>
-
-      <p class="text-slate-300 mb-8">
-        Toutes ces connaissances ont été acquises de différentes façons. Elles ont été acquises durant mes études en BTS
-        SIO et d'autres par ma propre initiative en essayant de mettre en place des solutions. J’ai également relevé les
-        défis organisés, ce qui permet d’effectuer des recherches et aller encore plus loin.
-      </p>
-
-      <div class="grid md:grid-cols-4 gap-10 max-w-8xl">
-
-        <a href="./Certification/certi-anssi.png" target="_blank"
-          class="cert-card p-8 bg-slate-800/70 backdrop-blur-md rounded-xl border border-slate-600 hover:border-blue-500 transition-all duration-300 shadow-lg hover:shadow-2xl flex flex-col items-center text-center max-w-xs no-underline">
-          <div class="text-6xl mb-4"></div>
-          <img src="Certification/certi-anssi.png" alt="SecNum Académie" class="w-24 h-24 mb-4 object-cover">
-          <h3 class="text-2xl font-bold text-white mb-2">SecNum Académie</h3>
-          <p class="text-slate-400 mb-4">Introduction à la cybersécurité - ANSSI</p>
-          <button
-            class="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300">
-            Voir attestation
-          </button>
-        </a>
-
-        </a>
-
-        <a href="./Certification/Certi-A-RGPD-M5.png" target="_blank"
-          class="cert-card p-8 bg-slate-800/70 backdrop-blur-md rounded-xl border border-slate-600 hover:border-blue-500 transition-all duration-300 shadow-lg hover:shadow-2xl flex flex-col items-center text-center max-w-xs no-underline">
-          <div class="text-6xl mb-4"></div>
-          <img src="Certification/Certi-A-RGPD-M5.png" alt="SecNum Académie" class="w-24 h-24 mb-4 object-cover">
-          <h3 class="text-2xl font-bold text-white mb-2">RGPD</h3>
-          <p class="text-slate-400 mb-4">Introduction - CNIL</p>
-          <button
-            class="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300">
-            Voir attestation
-          </button>
-        </a>
-
-        <a href="./Certification/certif-linux.png" target="_blank"
-          class="cert-card p-8 bg-slate-800/70 backdrop-blur-md rounded-xl border border-slate-600 hover:border-blue-500 transition-all duration-300 shadow-lg hover:shadow-2xl flex flex-col items-center text-center max-w-xs no-underline">
-          <div class="text-6xl mb-4"></div>
-          <img src="Certification/certif-linux.png" alt="CISCO" class="w-24 h-24 mb-4 object-cover">
-          <h3 class="text-2xl font-bold text-white mb-2">Cisco</h3>
-          <p class="text-slate-400 mb-4">Introduction au commande linux - CISCO</p>
-          <button
-            class="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300">
-            Voir attestation
-          </button>
-        </a>
-
-        <a href="./Certification/pix.pdf" target="_blank"
-          class="cert-card p-8 bg-slate-800/70 backdrop-blur-md rounded-xl border border-slate-600 hover:border-blue-500 transition-all duration-300 shadow-lg hover:shadow-2xl flex flex-col items-center text-center max-w-xs no-underline">
-          <div class="text-6xl mb-4"></div>
-          <img src="logoapp/Pix_logo.svg" alt="" class="w-24 h-24 mb-4 object-cover">
-          <h3 class="text-2xl font-bold text-white mb-2">PIX</h3>
-          <p class="text-slate-400 mb-4">Certification de compétences numériques</p>
-          <button
-            class="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300">
-            Voir certification
-          </button>
-        </a>
-
-      </div>
-    </section>
-
-
-
-
-    <!-- Parcours -->
-    <section id="parcours" class="px-8 py-24 bg-slate-900/30">
-      <h2 class="section-title text-white text-center mb-12">Parcours Scolaire</h2>
-
-      <div class="relative max-w-3xl mx-auto">
-        <!-- Ligne verticale -->
-        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-500/40"></div>
-
-        <!-- Timeline items -->
-        <div class=" mb-12 w-full flex justify-between items-center">
-          <div
-            class="timeline-card w-5/12 bg-slate-800/70 p-6 rounded-xl shadow-md transition-all duration-300 hover:translate-y-[-10px] hover:scale-105 hover:shadow-xl">
-            <div class="text-blue-400 font-bold text-lg mb-2">2024 - Présent</div>
-            <h3 class="text-2xl font-bold text-white mb-2">BTS SIO Option SLAM</h3>
-            <p class="text-slate-300">Lycée Turgot, Paris</p>
-          </div>
-          <div
-            class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full shadow-lg">
-          </div>
-        </div>
-
-        <div class=" mb-12 w-full flex justify-between items-center flex-row-reverse">
-          <div
-            class="timeline-card w-5/12 bg-slate-800/70 p-6 rounded-xl shadow-md transition-all duration-300 hover:translate-y-[-10px] hover:scale-105 hover:shadow-xl">
-            <div class="text-blue-400 font-bold text-lg mb-2">2021 - 2024</div>
-            <h3 class="text-2xl font-bold text-white mb-2">Bac STI2D Option SIN</h3>
-            <p class="text-slate-300">Lycée Condorcet, Montreuil</p>
-          </div>
-          <div
-            class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full shadow-lg">
-          </div>
-        </div>
-
-        <div class=" mb-12 w-full flex justify-between items-center">
-          <div
-            class="timeline-card w-5/12 bg-slate-800/70 p-6 rounded-xl shadow-md transition-all duration-300 hover:translate-y-[-10px] hover:scale-105 hover:shadow-xl">
-            <div class="text-blue-400 font-bold text-lg mb-2">2020</div>
-            <h3 class="text-2xl font-bold text-white mb-2">Brevet des collèges</h3>
-            <p class="text-slate-300">Collège Jean Moulin</p>
-          </div>
-          <div
-            class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-500 rounded-full shadow-lg">
-          </div>
-        </div>
-      </div>
-
-      <div class="max-w-7xl mx-auto">
-        <h2 class="section-title">Parcours Professionnel</h2>
-
-        <div id="parcourspro" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <!-- Stage 1ère année -->
-          <div class="card card-stage-1 p-8">
-            <div class="relative z-10">
-              <div class="badge badge-stage-1 mb-6 text-white">1ère Année</div>
-
-              <h3 class="text-3xl font-bold text-white mb-3 text-center">Stage 1ère année</h3>
-              <p class="text-emerald-400 text-center font-semibold mb-2">12 Mai - 4 juillet 2025</p>
-              <p class="text-slate-300 text-center mb-6 text-sm">Initiation aux métiers de l'informatique</p>
-
-              <div class="bg-slate-800/50 rounded-lg p-6 mb-6">
-                <h4 class="text-emerald-400 font-semibold mb-4 text-lg">Missions réalisées</h4>
-                <ul class="space-y-3 text-slate-300 text-sm list-none">
-                  <li>Création d'une application de gestion de demandes</li>
-                  <li>Gestion de tickets informatiques</li>
-                  <li>Installation de postes informatiques en réseau</li>
-                  <li>Gestion des logiciels</li>
-                </ul>
-              </div>
-
-              <div class="mb-6">
-                <h4 class="text-emerald-400 font-semibold mb-3">Compétences développées</h4>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs">Support
-                    technique</span>
-                  <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs">Réseau</span>
-                  <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs">Développement</span>
-                  <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs">Gestion</span>
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/10 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#hero" class="flex items-center space-x-2.5 group">
+                <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white font-semibold text-sm group-hover:bg-apple-accent transition-colors">
+                    SY
                 </div>
+<<<<<<< Updated upstream
               </div>
 
               <a href="stage.html" target="_blank" class="btn-primary w-full text-center block">
@@ -772,131 +845,927 @@
                   d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               📥 Télécharger tous les articles (Excel)
+=======
+                <span class="font-medium text-sm tracking-tight text-white">Sami Youssoufi</span>
+>>>>>>> Stashed changes
             </a>
-          </div>
 
-        </div>
-      </section>
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-medium text-apple-muted">
+                <a href="#profil" class="hover:text-white transition-colors" data-i18n="nav.profile">Profil</a>
+                <a href="#competences" class="hover:text-white transition-colors" data-i18n="nav.skills">Compétences</a>
+                <a href="#experiences" class="hover:text-white transition-colors" data-i18n="nav.experience">Expériences</a>
+                <a href="#projets" class="hover:text-white transition-colors" data-i18n="nav.projects">Projets</a>
+                <a href="#contact" class="hover:text-white transition-colors" data-i18n="nav.contact">Contact</a>
+            </nav>
 
-
-      <!-- Tableau de Synthèse -->
-      <section id="tableau-synthese" class="py-12 md:py-20 px-4 md:px-6 flex flex-col items-center" data-aos="fade-up">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-10 text-center text-blue-400 drop-shadow-lg">Annexe 8-1 —
-          Tableau de Synthèse</h2>
-        <div
-          class="bg-black/50 backdrop-blur-md border border-blue-500 rounded-2xl p-4 md:p-6 shadow-lg hover:scale-105 transition-transform max-w-3xl w-full">
-          <iframe src="Tableau-de-synthese-sami-youssoufi.pdf" title="Tableau de Synthèse PDF"
-            class="w-full h-64 md:h-96 rounded-xl border border-blue-700 shadow-inner"></iframe>
-          <div class="flex flex-col sm:flex-row justify-center gap-4 mt-4">
-            <a href="Tableau-de-synthese-sami-youssoufi.pdf" target="_blank"
-              class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-4 md:px-6 py-2 rounded-lg transition text-center text-sm md:text-base">Voir
-              PDF</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="px-4 md:px-8 py-16 md:py-24">
-        <h2 class="section-title text-white text-3xl md:text-4xl">Contact</h2>
-        <div class="max-w-3xl">
-          <div class="card p-6 md:p-8">
-            <div class="relative z-10">
-
-              <form id="contact-form" action="https://formspree.io/f/mqedzzke" method="POST"
-                class="space-y-4 md:space-y-6">
-
-                <div>
-                  <label for="email" class="block text-slate-400 text-sm mb-2">Votre Email</label>
-                  <input type="email" name="email" id="email" required
-                    class="w-full bg-slate-800/50 border border-slate-700 rounded-lg py-2 md:py-3 px-3 md:px-4 text-white focus:outline-none focus:border-blue-500 transition text-sm md:text-base"
-                    placeholder="exemple@email.com">
-                </div>
-
-                <div>
-                  <label for="message" class="block text-slate-400 text-sm mb-2">Message</label>
-                  <textarea name="message" id="message" rows="4" required
-                    class="w-full bg-slate-800/50 border border-slate-700 rounded-lg py-2 md:py-3 px-3 md:px-4 text-white focus:outline-none focus:border-blue-500 transition text-sm md:text-base"
-                    placeholder="Bonjour, j'aimerais discuter de..."></textarea>
-                </div>
-
-                <button type="submit" id="submit-btn"
-                  class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 md:py-3 px-4 md:px-6 rounded-lg transition transform hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base">
-                  Envoyer le message
+            <!-- CTA / Resume -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <button id="language-toggle" type="button" aria-label="Switch language" class="lang-toggle theme-toggle inline-flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium hover:bg-white/10 transition-all">
+                    <span>EN</span>
                 </button>
-
-                <p id="form-status" class="hidden text-center text-sm font-medium mt-4"></p>
-
-              </form>
-
-              <div class="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-slate-700/50 flex items-center">
-                <div
-                  class="w-8 h-8 md:w-10 md:h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mr-3 md:mr-4">
-                  <span class="text-lg md:text-xl">📧</span>
-                </div>
-                <div>
-                  <p class="text-slate-400 text-xs">Ou par email direct</p>
-                  <a href="mailto:sami.youssoufipro@gmail.com"
-                    class="text-sm text-white hover:text-blue-400 transition break-all">sami.youssoufipro@gmail.com</a>
-                </div>
-              </div>
+                <button id="theme-toggle" type="button" aria-label="Changer le thème" class="theme-toggle inline-flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium hover:bg-white/10 transition-all">
+                    <i class="fa-solid fa-sun"></i>
+                    <span>Light</span>
+                </button>
+                <a href="#contact" class="text-xs font-medium bg-white text-black px-4 py-2 rounded-full hover:bg-apple-accent hover:text-white transition-all duration-200">
+                    <span data-i18n="cta.contact">Contact me</span>
+                </a>
             </div>
-          </div>
+
+            <!-- Mobile menu button -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
-      </section>
 
-      <!-- Footer -->
-      <footer class="px-4 md:px-8 py-6 md:py-8 border-t border-slate-800 text-center text-slate-500">
-        <p class="text-sm md:text-base">© 2025 Sami Youssoufi - Tous droits réservés</p>
-      </footer>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 px-6 py-6 space-y-4 text-sm font-medium">
+            <a href="#profil" class="block text-apple-muted hover:text-white transition-colors"><span data-i18n="nav.profile">Profile</span></a>
+            <a href="#competences" class="block text-apple-muted hover:text-white transition-colors"><span data-i18n="nav.skills">Skills</span></a>
+            <a href="#experiences" class="block text-apple-muted hover:text-white transition-colors"><span data-i18n="nav.experience">Experience</span></a>
+            <a href="#projets" class="block text-apple-muted hover:text-white transition-colors"><span data-i18n="nav.projects">Projects</span></a>
+            <a href="#contact" class="block text-apple-muted hover:text-white transition-colors"><span data-i18n="nav.contact">Contact</span></a>
+            <button id="language-toggle-mobile" type="button" aria-label="Switch language" class="lang-toggle theme-toggle w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-full text-xs font-medium hover:bg-white/10 transition-all">
+                <span>EN</span>
+            </button>
+            <button id="theme-toggle-mobile" type="button" aria-label="Changer le thème" class="theme-toggle w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-full text-xs font-medium hover:bg-white/10 transition-all">
+                <i class="fa-solid fa-sun"></i>
+                <span>Light</span>
+            </button>
+        </div>
+    </header>
 
-  </main>
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-24 pb-16 px-6 relative overflow-hidden">
+        <div class="hero-glow"></div>
 
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        <div class="max-w-5xl mx-auto text-center relative z-10 space-y-8">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-blue/80 backdrop-blur-md">
+                <span class="w-2.5 h-2.5 rounded-full bg-apple-accent animate-pulse"></span>
+                <span data-i18n="hero.status">Open to apprenticeship</span>
+            </div>
+
+            <h1 class="hero-title">
+                <span class="text-white" data-i18n="hero.name">Sami Youssoufi</span>
+                <span class="apple-blue-gradient block sm:inline" data-i18n="hero.role">Student.</span>
+            </h1>
+
+            <p class="hero-subtitle" data-i18n="hero.subtitle">
+                Student in Cybersecurity & Back-End Development @ CNAM Paris | Former BTS SIO SLAM.<br>
+                Passionate about securing systems and networks, reverse engineering and building resilient applications.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 pt-2">
+                <a href="#projets" class="hero-cta bg-apple-accent text-white shadow-lg shadow-apple-accent/25 flex items-center justify-center gap-2">
+                    <span data-i18n="hero.primaryCta">Explore my projects</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a href="#profil" class="hero-cta bg-white/10 text-white border border-white/10 flex items-center justify-center">
+                    <span data-i18n="hero.secondaryCta">Learn more</span>
+                </a>
+            </div>
+
+            <div class="hero-console">
+                <div class="hero-console-header">
+                    <div class="flex space-x-2" aria-hidden="true">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    </div>
+                    <span class="text-xs font-mono text-white/60">sami@portfolio: ~</span>
+                </div>
+                <div id="terminal-output" class="hero-console-body font-mono" role="log" aria-live="polite" aria-label="Terminal output">
+                    <p class="text-apple-accent">Welcome to Sami's terminal. Type <span class="text-white">help</span> to see the available commands.</p>
+                </div>
+                <form id="terminal-form" class="px-4 pb-4 flex items-center gap-2 font-mono text-xs sm:text-sm" autocomplete="off">
+                    <label for="terminal-input" class="text-apple-accent shrink-0">sami@portfolio:~$</label>
+                    <input id="terminal-input" type="text" class="min-w-0 flex-1 bg-transparent text-white outline-none placeholder:text-gray-600" placeholder="Type help..." aria-label="Terminal command">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="profil" class="py-28 px-6 max-w-6xl mx-auto border-t border-white/10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 relative">
+                <div class="glass-card rounded-3xl p-4 sm:p-6 border border-white/10 relative group overflow-hidden">
+                    <img src="img-avatar/Avatar.jpeg" alt="Sami Y." class="w-full h-auto rounded-2xl object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <p class="text-xs font-mono text-apple-accent uppercase tracking-wider mb-1" data-i18n="profile.badge">Computer science student</p>
+                        <p class="text-lg font-semibold text-white" data-i18n="profile.focus">System and network security</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-block px-3 py-1 rounded-full bg-white/5 text-xs font-medium text-apple-accent">
+                    01 // <span data-i18n="profile.label">PROFILE</span>
+                </div>
+                <h3 class="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+                    Sami Youssoufi
+                </h3>
+                <p class="text-base sm:text-lg text-apple-muted leading-relaxed font-normal" data-i18n="profile.text1">
+                    Student in Computer Science Networks & Cybersecurity at CNAM Paris, after a BTS SIO SLAM. My profile combines software development and IT security.
+                </p>
+                <p class="text-base text-apple-muted leading-relaxed font-normal mt-4" data-i18n="profile.text2">
+                    You will find on this portfolio an overview of my skills through my academic projects and professional work.
+                </p>
+                <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
+                    <div>
+                        <p class="text-3xl font-bold text-white mb-1">2</p>
+                        <p class="text-xs text-apple-muted" data-i18n="profile.stat1">Internship</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-apple-accent mb-1">60+</p>
+                        <p class="text-xs text-apple-muted" data-i18n="profile.stat2">Challenges completed (Root-me)</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-white mb-1">100%</p>
+                        <p class="text-xs text-apple-muted" data-i18n="profile.stat3">Commitment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences" class="py-28 px-6 max-w-6xl mx-auto border-t border-white/10">
+        <div class="max-w-3xl mb-16 space-y-4">
+            <div class="inline-block px-3 py-1 rounded-full bg-white/5 text-xs font-medium text-apple-accent">
+                02 // <span data-i18n="skills.label">SKILLS & DOMAINS</span>
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white" data-i18n="skills.title">
+                Technical know-how.
+            </h2>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Skill Card 1 -->
+            <div class="glass-card rounded-3xl p-8 border border-white/10 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02]">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-apple-accent/10 border border-apple-accent/20 flex items-center justify-center text-apple-accent text-xl mb-6">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="skill1.title">General Cybersecurity</h3>
+                    <p class="text-sm text-apple-muted mb-6 leading-relaxed" data-i18n="skill1.text">
+                        Foundational knowledge in IT security, including essential concepts and best practices.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">Root-Me</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">GDPR</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">CNIL</span>
+                </div>
+            </div>
+
+            <!-- Skill Card 2 -->
+            <div class="glass-card rounded-3xl p-8 border border-white/10 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02]">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-6">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="skill2.title">Web Development</h3>
+                    <p class="text-sm text-apple-muted mb-6 leading-relaxed" data-i18n="skill2.text">
+                        I am a web developer with strong skills in HTML5, CSS3, PHP, JavaScript, SQL, XSS vulnerabilities, SQL injection and MCD methodology.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">PHP</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">SQL</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">MCD</span>
+                </div>
+            </div>
+
+            <!-- Skill Card 3 -->
+            <div class="glass-card rounded-3xl p-8 border border-white/10 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02]">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-xl mb-6">
+                        <i class="fa-solid fa-terminal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="skill3.title">Programming & Python</h3>
+                    <p class="text-sm text-apple-muted mb-6 leading-relaxed" data-i18n="skill3.text">
+                        Writing automation scripts for pentesting, real-time log analysis and the development of security tools.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">Python</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">Bash</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">Automation</span>
+                </div>
+            </div>
+
+            <!-- Skill Card 4 -->
+            <div class="glass-card rounded-3xl p-8 border border-white/10 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02]">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 text-xl mb-6">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="skill4.title">Systems & Networks</h3>
+                    <p class="text-sm text-apple-muted mb-6 leading-relaxed" data-i18n="skill4.text">
+                        Administration of Windows and Linux operating systems, virtualization setup, OS configuration and access control management.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">Linux / Unix</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">ACL</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-300 border border-white/10">Virtualization</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-20">
+            <div class="tools-marquee rounded-2xl" role="region" aria-label="Langages, logiciels et outils utilisés">
+                <div class="tools-marquee-track">
+                    <div class="tools-marquee-group">
+                        <span class="tools-marquee-item"><i class="fa-brands fa-html5" aria-hidden="true"></i>HTML5</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i>CSS3</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-js" aria-hidden="true"></i>JavaScript</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-php" aria-hidden="true"></i>PHP</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-python" aria-hidden="true"></i>Python</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                        <span class="tools-marquee-item"><i class="fa-solid fa-database" aria-hidden="true"></i>SQL / MySQL</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-laravel" aria-hidden="true"></i>Laravel</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-linux" aria-hidden="true"></i>Linux</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-windows" aria-hidden="true"></i>Windows</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                        <span class="tools-marquee-item"><i class="fa-solid fa-terminal" aria-hidden="true"></i>Bash</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-google" aria-hidden="true"></i>Google Apps Script</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                        <span class="tools-marquee-item"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Root-Me</span><span class="tools-marquee-separator" aria-hidden="true">•</span>
+                    </div>
+                    <div class="tools-marquee-group" aria-hidden="true">
+                        <span class="tools-marquee-item"><i class="fa-brands fa-html5"></i>HTML5</span><span class="tools-marquee-separator">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-css3-alt"></i>CSS3</span><span class="tools-marquee-separator">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-js"></i>JavaScript</span><span class="tools-marquee-separator">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-php"></i>PHP</span><span class="tools-marquee-separator">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-python"></i>Python</span><span class="tools-marquee-separator">•</span>
+                        <span class="tools-marquee-item"><i class="fa-solid fa-database"></i>SQL / MySQL</span><span class="tools-marquee-separator">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-laravel"></i>Laravel</span><span class="tools-marquee-separator">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-linux"></i>Linux</span><span class="tools-marquee-separator">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-windows"></i>Windows</span><span class="tools-marquee-separator">•</span>
+                        <span class="tools-marquee-item"><i class="fa-solid fa-terminal"></i>Bash</span><span class="tools-marquee-separator">•</span>
+                        <span class="tools-marquee-item"><i class="fa-brands fa-google"></i>Google Apps Script</span><span class="tools-marquee-separator">•</span>
+                        <span class="tools-marquee-item"><i class="fa-solid fa-shield-halved"></i>Root-Me</span><span class="tools-marquee-separator">•</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiences" class="py-28 px-6 max-w-5xl mx-auto border-t border-white/10">
+        <div class="max-w-3xl mb-16 space-y-4">
+            <div class="inline-block px-3 py-1 rounded-full bg-white/5 text-xs font-medium text-apple-accent">
+                03 // <span data-i18n="experience.label">FORMATIONS & EXPÉRIENCES</span>
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white" data-i18n="experience.title">
+                Un parcours guidé par l'expérience et la patience.
+            </h2>
+        </div>
+
+        <div class="space-y-8 relative before:absolute before:inset-0 before:left-6 before:w-0.5 before:bg-white/10">
+            <div class="relative flex items-start space-x-6">
+                <div class="w-12 h-12 rounded-2xl glass-card border border-white/20 flex items-center justify-center text-blue-400 text-lg z-10 shrink-0">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="glass-card rounded-3xl p-6 sm:p-8 flex-1 border border-white/10">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold text-white" data-i18n="experience.education1.title">Licence Informatique Réseaux & Cybersécurité en partenariat avec le CNAM Paris, Computer Science (Alternance)</h3>
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">2027 - 2026</span>
+                    </div>
+                    <p class="text-sm font-mono text-apple-muted mb-4" data-i18n="experience.education1.school">Conservatoire National des Arts et Métiers Paris</p>
+                    <p class="text-sm text-gray-300 leading-relaxed" data-i18n="experience.education1.description">
+                        Approfondissement de l'ingénierie informatique et du développement back-end. Spécialisation en cryptographie appliquée, reverse engineering, sécurisation du cloud et gouvernance de la sécurité des SI.
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative flex items-start space-x-6">
+                <div class="w-12 h-12 rounded-2xl glass-card border border-white/20 flex items-center justify-center text-amber-400 text-lg z-10 shrink-0">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="glass-card rounded-3xl p-6 sm:p-8 flex-1 border border-white/10">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold text-white" data-i18n="experience.stage1.title">Stage à la RATP INFRASTRUCTURES</h3>
+                        <span class="text-xs font-mono text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full w-max mt-2 sm:mt-0" data-i18n="experience.stage1.period">Déc. 2025 – Jan. 2026</span>
+                    </div>
+                    <p class="text-sm font-mono text-apple-muted mb-4" data-i18n="experience.stage1.company">Val de Fontenay (94) · Unité U2D</p>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-gray-300 leading-relaxed">
+                        <li data-i18n="experience.stage1.task1">Maintenance évolutive et corrective d'une application métier en environnement de production sensible</li>
+                        <li data-i18n="experience.stage1.task2">Assurance qualité (QA) et tests de non-régression sur des systèmes à haute disponibilité</li>
+                        <li data-i18n="experience.stage1.task3">Travail au sein d'une DSI gérant des infrastructures numériques critiques</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="relative flex items-start space-x-6">
+                <div class="w-12 h-12 rounded-2xl glass-card border border-white/20 flex items-center justify-center text-emerald-400 text-lg z-10 shrink-0">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="glass-card rounded-3xl p-6 sm:p-8 flex-1 border border-white/10">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold text-white" data-i18n="experience.stage2.title">Stage au lycée Condorcet</h3>
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full w-max mt-2 sm:mt-0" data-i18n="experience.stage2.period">Mai – Juil. 2025</span>
+                    </div>
+                    <p class="text-sm font-mono text-apple-muted mb-4" data-i18n="experience.stage2.company">Montreuil (93) · Service informatique</p>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-gray-300 leading-relaxed">
+                        <li data-i18n="experience.stage2.task1">Développement d'une application web de gestion des demandes d'un garage (JavaScript)</li>
+                        <li data-i18n="experience.stage2.task2">Gestion de tickets et support utilisateurs du service informatique</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="relative flex items-start space-x-6">
+                <div class="w-12 h-12 rounded-2xl glass-card border border-white/20 flex items-center justify-center text-purple-400 text-lg z-10 shrink-0">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="glass-card rounded-3xl p-6 sm:p-8 flex-1 border border-white/10">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold text-white" data-i18n="experience.education2.title">Brevet de Technicien Supérieur Services Informatiques aux Organisations option Solutions Logicielles et Applications Métiers</h3>
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">2026 - 2024</span>
+                    </div>
+                    <p class="text-sm font-mono text-apple-muted mb-4" data-i18n="experience.education2.school">Lycée et Pôle Supérieur Turgot</p>
+                    <p class="text-sm text-gray-300 leading-relaxed" data-i18n="experience.education2.description">
+                        Conception, développement et déploiement d'applications web et gestion des bases de données. Intégration de briques de sécurité avec la surveillance réseau, la gestion des alertes et la détection d'incidents.
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative flex items-start space-x-6">
+                <div class="w-12 h-12 rounded-2xl glass-card border border-white/20 flex items-center justify-center text-purple-400 text-lg z-10 shrink-0">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="glass-card rounded-3xl p-6 sm:p-8 flex-1 border border-white/10">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold text-white" data-i18n="experience.education3.title">Baccalauréat technologique en Sciences et Technologies de l'Industrie et du Développement Durable & Systèmes d'Information et Numérique</h3>
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full w-max mt-2 sm:mt-0">2024 - 2022</span>
+                    </div>
+                    <p class="text-sm font-mono text-apple-muted mb-4" data-i18n="experience.education3.school">Lycée Condorcet</p>
+                    <p class="text-sm text-gray-300 leading-relaxed" data-i18n="experience.education3.description">
+                        Introduction aux réseaux informatiques, bases du développement de solutions numériques, gestion des flux d'information et initiation aux systèmes communicants.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="py-28 px-6 max-w-6xl mx-auto border-t border-white/10">
+        <div class="max-w-3xl mb-12 space-y-4">
+            <div class="inline-block px-3 py-1 rounded-full bg-white/5 text-xs font-medium text-apple-accent">
+                04 // <span data-i18n="projects.label">PROJETS & RÉALISATIONS</span>
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white" data-i18n="projects.title">
+                Some notable projects.
+            </h2>
+            <p class="text-apple-muted text-base" data-i18n="projects.subtitle">
+                Projects and tools built.
+            </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-12 font-medium text-xs">
+            <button class="filter-btn px-5 py-2.5 rounded-full bg-white text-black font-semibold transition-all" data-filter="all" data-i18n="projects.filter.all">All projects</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full glass-card text-apple-muted hover:text-white transition-all border border-white/10" data-filter="web" data-i18n="projects.filter.web">Web development</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full glass-card text-apple-muted hover:text-white transition-all border border-white/10" data-filter="metier" data-i18n="projects.filter.metier">Business app</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="project-card glass-card rounded-3xl overflow-hidden border border-white/10 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02]" data-category="web">
+                <div class="p-8 pb-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
+                        </div>
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-full" data-i18n="projects.card1.tag">Blog</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2" data-i18n="projects.card1.title">Larablog</h3>
+                    <p class="text-sm text-apple-muted leading-relaxed mb-6" data-i18n="projects.card1.description">
+                        Laravel blog to publish articles.
+                    </p>
+                </div>
+                <div class="px-8 pb-8 pt-0 flex items-center justify-between border-t border-white/5 pt-4">
+                    <div class="flex space-x-2 text-xs font-mono text-apple-muted">
+                        <span>PHP</span>
+                        <span>•</span>
+                        <span>MySQL</span>
+                        <span>•</span>
+                        <span>Laravel</span>
+                    </div>
+                    <a href="#" class="text-xs font-medium text-white hover:text-apple-accent transition-colors flex items-center space-x-1">
+                        <span>Github</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card glass-card rounded-3xl overflow-hidden border border-white/10 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02]" data-category="web">
+                <div class="p-8 pb-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-apple-accent/10 flex items-center justify-center text-apple-accent">
+                        </div>
+                        <span class="text-xs font-mono text-apple-accent bg-apple-accent/10 px-2.5 py-1 rounded-full" data-i18n="projects.card2.tag">E-commerce site</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2" data-i18n="projects.card2.title">E-commerce Site</h3>
+                    <p class="text-sm text-apple-muted leading-relaxed mb-6" data-i18n="projects.card2.description">
+                        Development of an online sales platform specialized in branded footwear.
+                    </p>
+                </div>
+                <div class="px-8 pb-8 pt-0 flex items-center justify-between border-t border-white/5 pt-4">
+                    <div class="flex space-x-2 text-xs font-mono text-apple-muted">
+                        <span>PHP</span>
+                        <span>•</span>
+                        <span>MySQL</span>
+                        <span>•</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <a href="#" class="text-xs font-medium text-white hover:text-apple-accent transition-colors flex items-center space-x-1">
+                        <span>Github</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card glass-card rounded-3xl overflow-hidden border border-white/10 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02]" data-category="metier">
+                <div class="p-8 pb-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-apple-accent/10 flex items-center justify-center text-apple-accent">
+                        </div>
+                        <span class="text-xs font-mono text-apple-accent bg-apple-accent/10 px-2.5 py-1 rounded-full" data-i18n="projects.card3.tag">Business app</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2" data-i18n="projects.card3.title">Garage App</h3>
+                    <p class="text-sm text-apple-muted leading-relaxed mb-6" data-i18n="projects.card3.description">
+                        Developed as part of the opening of the Condorcet school teaching garage to the public, this project automates the management of intervention requests.
+                    </p>
+                </div>
+                <div class="px-8 pb-8 pt-0 flex items-center justify-between border-t border-white/5 pt-4">
+                    <div class="flex space-x-2 text-xs font-mono text-apple-muted">
+                        <span>Google Apps Script</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-28 px-6 max-w-4xl mx-auto border-t border-white/10">
+        <div class="text-center mb-16 space-y-4">
+            <div class="inline-block px-3 py-1 rounded-full bg-white/5 text-xs font-medium text-apple-accent">
+                05 // <span data-i18n="contact.label">CONTACT & EXCHANGE</span>
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white" data-i18n="contact.title">
+                Let's discuss your project.
+            </h2>
+            <p class="text-apple-muted text-base max-w-xl mx-auto" data-i18n="contact.text">
+                A question, a mission opportunity or an audit need? Send me a direct message.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+            <!-- Social links / Direct contact -->
+            <div class="md:col-span-5 space-y-6">
+                <div class="glass-card rounded-3xl p-8 border border-white/10 space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-apple-accent">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-apple-muted" data-i18n="contact.emailLabel">Direct email</p>
+                            <a href="mailto:sami.youssoufipro@gmail.com" class="text-white text-sm font-semibold hover:underline">sami.youssoufipro@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-blue-400">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-apple-muted" data-i18n="contact.linkedin">LinkedIn</p>
+                            <a href="https://www.linkedin.com/in/sami-youssoufi-72904532a/" target="_blank" class="text-white text-sm font-semibold hover:underline">linkedin.com/sami-youssoufi</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-purple-400">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-apple-muted" data-i18n="contact.github">GitHub</p>
+                            <a href="https://github.com/samsadevpro/samsadevpro" target="_blank" class="text-white text-sm font-semibold hover:underline">github.com/samsadev</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact form -->
+            <div class="md:col-span-7">
+                <form id="contact-form" action="https://formspree.io/f/mqedzzke" method="POST" class="glass-card rounded-3xl p-8 border border-white/10 space-y-6">
+                    <div>
+                        <label for="contact-name" class="block text-xs font-mono text-apple-muted mb-2" data-i18n="contact.formName">YOUR NAME</label>
+                        <input id="contact-name" name="name" type="text" autocomplete="name" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-apple-accent transition-colors">
+                    </div>
+                    <div>
+                        <label for="contact-email" class="block text-xs font-mono text-apple-muted mb-2" data-i18n="contact.formEmail">YOUR EMAIL</label>
+                        <input id="contact-email" name="email" type="email" autocomplete="email" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-apple-accent transition-colors">
+                    </div>
+                    <div>
+                        <label for="contact-message" class="block text-xs font-mono text-apple-muted mb-2" data-i18n="contact.formMessage">MESSAGE</label>
+                        <textarea id="contact-message" name="message" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-apple-accent transition-colors resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-2xl bg-apple-accent text-white font-semibold text-sm hover:bg-apple-accentHover transition-colors shadow-lg shadow-apple-accent/25" data-i18n="contact.submit">
+                        Send message
+                    </button>
+                </form>
+                <div id="contact-form-status" class="hidden mt-4 p-4 rounded-2xl text-center text-sm font-medium" role="status" aria-live="polite">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 max-w-6xl mx-auto border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-apple-muted">
+        <p data-i18n="footer.copyright">2026 Sami Y. ; Copyright Sami Youssoufi - Portfolio. All rights reserved</p>
+        <div class="flex space-x-6 mt-4 sm:mt-0">
+            <a href="#hero" class="hover:text-white transition-colors" data-i18n="footer.top">Back to top ↑</a>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            fr: {
+                nav: { profile: 'Profil', skills: 'Compétences', experience: 'Expériences', projects: 'Projets', contact: 'Contact' },
+                cta: { contact: 'Me contacter' },
+                hero: {
+                    status: 'En recherche d\'alternance',
+                    name: 'Sami Youssoufi',
+                    role: 'Etudiant.',
+                    subtitle: 'Étudiant en Cybersécurité & Dev Back-End @ CNAM Paris | Ex-BTS SIO SLAM.\nFaciné par la sécurisation des systèmes et réseaux, le reverse engineering et le développement d\'applications résilientes.',
+                    primaryCta: 'Explorer mes projets',
+                    secondaryCta: 'En savoir plus'
+                },
+                profile: {
+                    badge: 'Etudiant en informatique',
+                    focus: 'Sécurité des systèmes et réseaux',
+                    label: 'PROFIL',
+                    text1: 'Étudiant en Licence Informatique Réseaux & Cybersécurité au CNAM Paris, après un BTS SIO SLAM. Mon profil associe le développement logiciel et la sécurisation des systèmes informatiques.',
+                    text2: 'Vous trouverez sur ce portfolio un aperçu de mes compétences à travers mes différents projets d\'études et réalisations professionnelles.',
+                    stat1: 'Stage',
+                    stat2: 'Défis réalisée (Root-me)',
+                    stat3: 'Implication'
+                },
+                skills: { label: 'COMPÉTENCES & DOMAINES', title: 'Un savoir-faire technique.', toolsTitle: 'Langages, logiciels & outils', toolsDescription: 'Technologies et environnements utilisés dans mes projets et formations.', languages: 'Langages', frameworks: 'Frameworks & bases de données', systems: 'Systèmes & outils' },
+                skill1: { title: 'Cybersécurité Générale', text: 'Connaissances de base en sécurité informatique, y compris les concepts et les bonnes pratiques.' },
+                skill2: { title: 'Développement Web', text: 'Je suis un développeur web avec des compétences approfondies en HTML5, CSS3, PHP, JavaScript, SQL, failles XSS, injection SQL et la méthode MCD.' },
+                skill3: { title: 'Programmation & Python', text: 'Écriture de scripts d\'automatisation pour le pentesting, analyse de logs en temps réel, et développement d\'outils de sécurité.' },
+                skill4: { title: 'Systèmes & Réseaux', text: 'Administration des systèmes d\'exploitation Windows et distributions Linux (Kali, Ubuntu, Debian), installation virtualisation, configuration des OS et gestions des droits.' },
+                experience: {
+                    label: 'FORMATIONS & EXPÉRIENCES',
+                    title: 'Un parcours guidé par l\'expérience et la patience.',
+                    stage1: { title: 'Stage à la RATP INFRASTRUCTURES', period: 'Déc. 2025 – Jan. 2026', company: 'Val de Fontenay (94) · Unité U2D', task1: 'Maintenance évolutive et corrective d\'une application métier en environnement de production sensible', task2: 'Assurance qualité (QA) et tests de non-régression sur des systèmes à haute disponibilité', task3: 'Travail au sein d\'une DSI gérant des infrastructures numériques critiques' },
+                    stage2: { title: 'Stage au lycée Condorcet', period: 'Mai – Juil. 2025', company: 'Montreuil (93) · Service informatique', task1: 'Développement d\'une application web de gestion des demandes d\'un garage (JavaScript)', task2: 'Gestion de tickets et support utilisateurs du service informatique' },
+                    education1: { title: 'Licence Informatique Réseaux & Cybersécurité en partenariat avec le CNAM Paris, Computer Science (Alternance)', school: 'Conservatoire National des Arts et Métiers Paris', description: 'Approfondissement de l\'ingénierie informatique et du développement back-end. Spécialisation en cryptographie appliquée, reverse engineering, sécurisation du cloud et gouvernance de la sécurité des SI.' },
+                    education2: { title: 'Brevet de Technicien Supérieur Services Informatiques aux Organisations option Solutions Logicielles et Applications Métiers', school: 'Lycée et Pôle Supérieur Turgot', description: 'Conception, développement et déploiement d\'applications web et gestion des bases de données. Intégration de briques de sécurité avec la surveillance réseau, la gestion des alertes et la détection d\'incidents.' },
+                    education3: { title: 'Baccalauréat technologique en Sciences et Technologies de l\'Industrie et du Développement Durable & Systèmes d\'Information et Numérique', school: 'Lycée Condorcet', description: 'Introduction aux réseaux informatiques, bases du développement de solutions numériques, gestion des flux d\'information et initiation aux systèmes communicants.' }
+                },
+                projects: {
+                    label: 'PROJETS & RÉALISATIONS',
+                    title: 'Quelques réalisations remarquables.',
+                    subtitle: 'Projets & outils réalisés.',
+                    filter: { all: 'Tous les projets', web: 'Développement Web', metier: 'Application métier' },
+                    card1: { tag: 'Blog', title: 'Larablog', description: 'Blog Laravel pour publier des articles.' },
+                    card2: { tag: 'Site E-commerce', title: 'Site E-commerce', description: 'Développement d\'une plateforme de vente en ligne spécialisée dans les chaussures de marque.' },
+                    card3: { tag: 'Application métier', title: 'Garage App', description: 'Développé dans le cadre de l\'ouverture du garage pédagogique du lycée Condorcet au public, ce projet vise à automatiser la gestion des demandes d\'intervention.' }
+                },
+                contact: { label: 'CONTACT & ÉCHANGE', title: 'Discutons de votre projet.', text: 'Une question, une opportunité de mission ou un besoin d\'audit ? Envoyez-moi un message direct.', emailLabel: 'Email direct', linkedin: 'LinkedIn', github: 'GitHub', formName: 'VOTRE NOM', formEmail: 'VOTRE EMAIL', formMessage: 'MESSAGE', submit: 'Envoyer le message', sending: 'Envoi en cours…', success: '✓ Message envoyé avec succès ! Je vous répondrai rapidement.', error: 'L’envoi a échoué. Vérifiez votre connexion et réessayez.' },
+                footer: { copyright: '© 2026 Sami Y. • Portfolio. Tous droits réservés', top: 'Haut de page ↑' }
+            },
+            en: {
+                nav: { profile: 'Profile', skills: 'Skills', experience: 'Experience', projects: 'Projects', contact: 'Contact' },
+                cta: { contact: 'Contact me' },
+                hero: {
+                    status: 'Open to apprenticeship',
+                    name: 'Sami Youssoufi',
+                    role: 'Student.',
+                    subtitle: 'Student in Cybersecurity & Back-End Development @ CNAM Paris | Former BTS SIO SLAM.\nPassionate about securing systems and networks, reverse engineering and building resilient applications.',
+                    primaryCta: 'Explore my projects',
+                    secondaryCta: 'Learn more'
+                },
+                profile: {
+                    badge: 'Computer science student',
+                    focus: 'System and network security',
+                    label: 'PROFILE',
+                    text1: 'Student in Computer Science Networks & Cybersecurity at CNAM Paris, after a BTS SIO SLAM. My profile combines software development and IT security.',
+                    text2: 'You will find on this portfolio an overview of my skills through my academic projects and professional work.',
+                    stat1: 'Internship years',
+                    stat2: 'Challenges completed (Root-me)',
+                    stat3: 'Commitment'
+                },
+                skills: { label: 'SKILLS & DOMAINS', title: 'Technical know-how.', toolsTitle: 'Languages, software & tools', toolsDescription: 'Technologies and environments used in my projects and studies.', languages: 'Languages', frameworks: 'Frameworks & databases', systems: 'Systems & tools' },
+                skill1: { title: 'General Cybersecurity', text: 'Foundational knowledge in IT security, including essential concepts and best practices.' },
+                skill2: { title: 'Web Development', text: 'I am a web developer with strong skills in HTML5, CSS3, PHP, JavaScript, SQL, XSS vulnerabilities, SQL injection and MCD methodology.' },
+                skill3: { title: 'Programming & Python', text: 'Writing automation scripts for pentesting, real-time log analysis and the development of security tools.' },
+                skill4: { title: 'Systems & Networks', text: 'Administration of Windows and Linux operating systems, virtualization setup, OS configuration and access control management.' },
+                experience: {
+                    label: 'EDUCATION & EXPERIENCE',
+                    title: 'A journey guided by experience and patience.',
+                    stage1: { title: 'Internship at RATP INFRASTRUCTURES', period: 'Dec. 2025 – Jan. 2026', company: 'Val de Fontenay (94) · U2D unit', task1: 'Enhancement and corrective maintenance of a business application in a sensitive production environment', task2: 'Quality assurance (QA) and regression testing on high-availability systems', task3: 'Worked within an IT department managing critical digital infrastructure' },
+                    stage2: { title: 'Internship at Lycée Condorcet', period: 'May – Jul. 2025', company: 'Montreuil (93) · IT department', task1: 'Developed a web application to manage requests for a garage (JavaScript)', task2: 'Ticket management and user support for the IT department' },
+                    education1: { title: 'Computer Science Networks & Cybersecurity degree in partnership with CNAM Paris, Computer Science (Apprenticeship)', school: 'Conservatoire National des Arts et Métiers &bull; Paris', description: 'In-depth study of computer engineering and back-end development. Specialization in applied cryptography, reverse engineering, cloud security, and information security governance.' },
+                    education2: { title: 'Higher Technician Certificate in Information Technology Services for Organizations, Software Solutions & Business Applications option', school: 'Lycée et Pôle Supérieur Turgot', description: 'Design, development, and deployment of web applications and database management. Integration of security components with network monitoring, alert management, and incident detection.' },
+                    education3: { title: 'Technological Baccalaureate in Industrial Sciences and Sustainable Development & Digital Information Systems', school: 'Lycée Condorcet', description: 'Introduction to computer networks, fundamentals of digital solution development, information flow management, and discovery of communication systems.' }
+                },
+                projects: {
+                    label: 'PROJECTS & WORKS',
+                    title: 'Some notable projects.',
+                    subtitle: 'Projects and tools built.',
+                    filter: { all: 'All projects', web: 'Web development', metier: 'Business app' },
+                    card1: { tag: 'Blog', title: 'Larablog', description: 'Laravel blog to publish articles.' },
+                    card2: { tag: 'E-commerce site', title: 'E-commerce Site', description: 'Development of an online sales platform specialized in branded footwear.' },
+                    card3: { tag: 'Business app', title: 'Garage App', description: 'Developed as part of the opening of the Condorcet school teaching garage to the public, this project automates the management of intervention requests.' }
+                },
+                contact: { label: 'CONTACT & EXCHANGE', title: 'Let\'s discuss your project.', text: 'A question, a mission opportunity or an audit need? Send me a direct message.', emailLabel: 'Direct email', linkedin: 'LinkedIn', github: 'GitHub', formName: 'YOUR NAME', formEmail: 'YOUR EMAIL', formMessage: 'MESSAGE', submit: 'Send message', sending: 'Sending…', success: '✓ Message sent successfully! I will get back to you soon.', error: 'Message could not be sent. Check your connection and try again.' },
+                footer: { copyright: '© 2026 Sami Y. • Portfolio. All rights reserved', top: 'Back to top ↑' }
+            }
+        };
+
+        const getTranslation = (key, lang) => {
+            const keys = key.split('.');
+            let current = translations[lang];
+            for (const item of keys) {
+                current = current?.[item];
+                if (current === undefined) return undefined;
+            }
+            return current;
+        };
+
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const languageToggle = document.getElementById('language-toggle');
+        const languageToggleMobile = document.getElementById('language-toggle-mobile');
+        let currentLang = localStorage.getItem('lang') || 'fr';
+        const contactForm = document.getElementById('contact-form');
+        const contactFormStatus = document.getElementById('contact-form-status');
+        let isContactFormSubmitting = false;
+        let contactFormStatusKey = null;
+
+        const renderContactFormStatus = () => {
+            if (!contactFormStatusKey) {
+                contactFormStatus.classList.add('hidden');
+                contactFormStatus.textContent = '';
+                return;
+            }
+
+            contactFormStatus.textContent = getTranslation(`contact.${contactFormStatusKey}`, currentLang);
+            contactFormStatus.className = contactFormStatusKey === 'error'
+                ? 'mt-4 p-4 rounded-2xl bg-red-500/10 border border-red-500 text-red-400 text-center text-sm font-medium'
+                : 'mt-4 p-4 rounded-2xl bg-apple-accent/10 border border-apple-accent text-apple-accent text-center text-sm font-medium';
+        };
+
+        const updateLanguageButtons = (lang) => {
+            [languageToggle, languageToggleMobile].forEach((button) => {
+                if (!button) return;
+                const label = button.querySelector('span');
+                if (!label) return;
+                label.textContent = lang === 'fr' ? 'EN' : 'FR';
+                button.setAttribute('aria-label', lang === 'fr' ? 'Switch to English' : 'Passer en français');
+            });
+        };
+
+        const updateThemeButtons = (isLight) => {
+            [themeToggle, themeToggleMobile].forEach((button) => {
+                if (!button) return;
+
+                const icon = button.querySelector('i');
+                const label = button.querySelector('span');
+
+                if (!icon || !label) return;
+
+                if (isLight) {
+                    icon.className = 'fa-solid fa-moon';
+                    label.textContent = currentLang === 'fr' ? 'Sombre' : 'Dark';
+                } else {
+                    icon.className = 'fa-solid fa-sun';
+                    label.textContent = currentLang === 'fr' ? 'Clair' : 'Light';
+                }
+            });
+        };
+
+        const applyTheme = (isLight) => {
+            document.body.classList.toggle('light-theme', isLight);
+            updateThemeButtons(isLight);
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        };
+
+        const applyLanguage = (lang) => {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang;
+            document.title = lang === 'en' ? 'Sami Y. — Computer Science Student' : 'Sami Y. — Etudiant en Informatique';
+
+            document.querySelectorAll('[data-i18n]').forEach((element) => {
+                const value = getTranslation(element.dataset.i18n, lang);
+                if (value !== undefined) {
+                    element.textContent = value;
+                }
+            });
+
+            const contactSubmitButton = contactForm.querySelector('[type="submit"]');
+            contactSubmitButton.textContent = getTranslation(
+                isContactFormSubmitting ? 'contact.sending' : 'contact.submit',
+                lang
+            );
+            renderContactFormStatus();
+
+            const terminalOutput = document.getElementById('terminal-output');
+            if (terminalOutput) {
+                terminalOutput.innerHTML = lang === 'en'
+                    ? '<p class="text-apple-accent">Welcome to Sami\'s terminal. Type <span class="text-white">help</span> to see the available commands.</p>'
+                    : '<p class="text-apple-accent">Bienvenue dans le terminal de Sami. Tapez <span class="text-white">help</span> pour afficher les commandes disponibles.</p>';
+            }
+
+            const terminalInput = document.getElementById('terminal-input');
+            if (terminalInput) {
+                terminalInput.placeholder = lang === 'en' ? 'Type help...' : 'Tapez help...';
+            }
+
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach((button) => {
+                const filter = button.dataset.filter;
+                if (filter === 'all') button.textContent = lang === 'en' ? 'All projects' : 'Tous les projets';
+                if (filter === 'web') button.textContent = lang === 'en' ? 'Web development' : 'Développement Web';
+                if (filter === 'metier') button.textContent = lang === 'en' ? 'Business app' : 'Application métier';
+            });
+
+            syncTerminalLanguage(lang);
+            updateLanguageButtons(lang);
+            updateThemeButtons(document.body.classList.contains('light-theme'));
+        };
+
+        const savedTheme = localStorage.getItem('theme');
+        const initialTheme = savedTheme === 'light';
+        applyTheme(initialTheme);
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                applyTheme(!document.body.classList.contains('light-theme'));
+            });
         }
-      });
-    });
 
-    // Particles animation
-    const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 50; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 20 + 's';
-      particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
-      particlesContainer.appendChild(particle);
-    }
-
-    // Active nav link
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop - 200) {
-          current = section.getAttribute('id');
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', () => {
+                applyTheme(!document.body.classList.contains('light-theme'));
+            });
         }
-      });
 
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
+        if (languageToggle) {
+            languageToggle.addEventListener('click', () => {
+                applyLanguage(currentLang === 'fr' ? 'en' : 'fr');
+            });
         }
-      });
-    });
-  </script>
 
+        if (languageToggleMobile) {
+            languageToggleMobile.addEventListener('click', () => {
+                applyLanguage(currentLang === 'fr' ? 'en' : 'fr');
+            });
+        }
+
+        // Portfolio terminal commands (intentionally not a system shell)
+        const terminalForm = document.getElementById('terminal-form');
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalOutput = document.getElementById('terminal-output');
+
+        const getTerminalCommands = (lang) => ({
+            help: lang === 'en'
+                ? 'Available commands: help, about, skills, projects, contact, cv, clear.'
+                : 'Commandes disponibles : help, about, skills, projects, contact, cv, clear.',
+            about: lang === 'en'
+                ? 'Computer science student interested in cybersecurity, development and systems.'
+                : 'Étudiant en informatique, intéressé par la cybersécurité, le développement et les systèmes.',
+            skills: lang === 'en'
+                ? 'Explores cybersecurity, web development, programming and network domains.'
+                : 'Parcours les domaines cybersécurité, développement web, programmation et réseaux.',
+            projects: lang === 'en'
+                ? 'The Projects section presents the portfolio works.'
+                : 'La section Projets présente les réalisations du portfolio.',
+            contact: lang === 'en'
+                ? 'The Contact section lets you get in touch with Sami.'
+                : 'La section Contact permet de prendre contact avec Sami.'
+        });
+
+        let terminalCommands = getTerminalCommands(currentLang);
+
+        terminalForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const command = terminalInput.value.trim().toLowerCase();
+            if (!command) return;
+
+            const commandLine = document.createElement('p');
+            commandLine.className = 'text-apple-accent';
+            commandLine.textContent = `sami@portfolio:~$ ${command}`;
+            terminalOutput.append(commandLine);
+
+            if (command === 'clear') {
+                terminalOutput.replaceChildren();
+            } else if (command === 'cv') {
+                const result = document.createElement('p');
+                result.className = 'text-gray-300';
+                result.append(currentLang === 'en' ? 'Download my CV: ' : 'Télécharger mon CV : ');
+
+                const downloadLink = document.createElement('a');
+                downloadLink.href = 'cv.pdf';
+                downloadLink.download = '';
+                downloadLink.textContent = currentLang === 'en' ? 'click here' : 'cliquer ici';
+                downloadLink.className = 'text-apple-accent underline hover:text-white';
+                result.append(downloadLink);
+
+                terminalOutput.append(result);
+            } else {
+                const knownCommand = Object.prototype.hasOwnProperty.call(terminalCommands, command);
+                const result = document.createElement('p');
+                result.className = knownCommand ? 'text-gray-300' : 'text-red-400';
+                result.textContent = knownCommand
+                    ? terminalCommands[command]
+                    : (currentLang === 'en'
+                        ? `Unknown command: ${command}. Type help to see the available commands.`
+                        : `Commande inconnue : ${command}. Tapez help pour voir les commandes disponibles.`);
+                terminalOutput.append(result);
+            }
+
+            terminalInput.value = '';
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        });
+
+        const syncTerminalLanguage = (lang) => {
+            terminalCommands = getTerminalCommands(lang);
+        };
+
+        applyLanguage(currentLang);
+
+        // Project filter logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-white', 'text-black', 'font-semibold');
+                    b.classList.add('glass-card', 'text-apple-muted');
+                });
+                btn.classList.remove('glass-card', 'text-apple-muted');
+                btn.classList.add('bg-white', 'text-black', 'font-semibold');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            if (isContactFormSubmitting || !contactForm.reportValidity()) return;
+
+            isContactFormSubmitting = true;
+            contactForm.querySelector('[type="submit"]').disabled = true;
+            contactFormStatusKey = null;
+            renderContactFormStatus();
+            contactForm.querySelector('[type="submit"]').textContent = getTranslation('contact.sending', currentLang);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { Accept: 'application/json' }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Formspree returned HTTP ${response.status}`);
+                }
+
+                contactForm.reset();
+                contactFormStatusKey = 'success';
+            } catch (error) {
+                console.error('Contact form submission failed:', error);
+                contactFormStatusKey = 'error';
+            } finally {
+                isContactFormSubmitting = false;
+                contactForm.querySelector('[type="submit"]').disabled = false;
+                contactForm.querySelector('[type="submit"]').textContent = getTranslation('contact.submit', currentLang);
+                renderContactFormStatus();
+            }
+        });
+    </script>
 </body>
+<<<<<<< Updated upstream
 
 </html>
+=======
+</html>
+>>>>>>> Stashed changes
